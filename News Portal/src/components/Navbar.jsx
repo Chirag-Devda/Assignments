@@ -1,18 +1,23 @@
-import { FaSearch } from "react-icons/fa";
-const Navbar = () => {
+import { useState } from "react";
+
+const Navbar = ({ search, handleSearch }) => {
   return (
     <nav className="bg-[#ef476f]">
       <div className="h-16 flex justify-between px-5 items-center max-w-[1280px] mx-auto">
         <div className="logo">
           <p>News Vala</p>
         </div>
-        <div className="search flex items-center relative w-fit">
+        <div className="search flex items-center gap-5 w-fit">
           <input
-            type="type"
+            type="search"
+            value={search}
+            onChange={handleSearch}
             placeholder="Search for latest"
-            className="bg-white text-black pl-7  py-1 rounded-md"
+            className="bg-white text-black px-3  py-1 rounded-md"
           />
-          <FaSearch className="absolute cursor-pointer w-7" />
+          <button type="submit" className="bg-yellow-300 px-5 py-1 rounded-lg">
+            Submit
+          </button>
         </div>
       </div>
     </nav>
