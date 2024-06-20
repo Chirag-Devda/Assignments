@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { updateQuery } from "../features/Query/QuerySlice";
 
-const Filter = () => {
+const Filter = ({ fetchNews }) => {
   const [toggle, settoggle] = useState(false);
-  const filters = ["Filter 1", "Filter 2", "Filter 3", "Filter 4"];
+  const filters = ["Business", "Technology", "Entertainment"];
+
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="h-14 flex justify-end px-5 items-center max-w-[1280px] mx-auto">
@@ -20,15 +25,17 @@ const Filter = () => {
             </span>
           </h4>
           {toggle && (
-            <div className="w-[130px] absolute top-14 right-0 border bg-[#f1faee] text-black rounded-md">
-              <ul className="cursor-pointer flex flex-col justify-start items-start gap-2 w-full">
+            <div className="w-[140px] absolute top-14 right-0 border bg-[#f1faee] text-black rounded-md">
+              <ul className="cursor-pointer flex flex-col gap-2 w-full">
                 {filters.map((item, i) => (
                   <li
                     key={i}
                     onClick={(e) => {
                       settoggle(false);
+                      dispatch(updateQuery(e.target.innerHTML));
+                      fetchNews(1, e.target.innerHTML);
                     }}
-                    className="px-10 py-2 border-b-2"
+                    className="flex justify-center w-full items-center py-2 border-b-2"
                   >
                     {item}
                   </li>
