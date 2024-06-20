@@ -6,7 +6,6 @@ const Navbar = ({ fetchNews }) => {
   const [search, setsearch] = useState("");
 
   const currentPage = useSelector((state) => state.page.currentPage);
-  const currentQuery = useSelector((state) => state.query.currentQuery);
 
   const dispatch = useDispatch();
 
@@ -14,15 +13,11 @@ const Navbar = ({ fetchNews }) => {
     setsearch(e.target.value);
   };
 
-  useEffect(() => {
-    console.log(`CurrentPage is ${currentPage} and Query is ${currentQuery}`);
-  }, [currentQuery]);
-
   return (
-    <nav className="bg-[#ef476f]">
+    <nav className="bg-[#0000b6]">
       <div className="h-16 flex justify-between px-5 items-center max-w-[1280px] mx-auto">
         <div className="logo">
-          <p>News Vala</p>
+          <img width="200px" src="/logo.png" alt="Logo" />
         </div>
         <form className="search flex items-center gap-5 w-fit">
           <input
@@ -39,7 +34,7 @@ const Navbar = ({ fetchNews }) => {
               dispatch(updateQuery(search));
               fetchNews(currentPage, search);
             }}
-            className="bg-yellow-300 px-5 py-1 rounded-lg"
+            className="bg-[#c70200] text-white font-medium px-5 py-1 rounded-lg"
           >
             Search
           </button>

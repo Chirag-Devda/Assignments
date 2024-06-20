@@ -17,7 +17,7 @@ const Filter = ({ fetchNews }) => {
             onClick={() => {
               settoggle((prev) => (prev = !prev));
             }}
-            className="bg-blue-600 cursor-pointer w-fit flex items-center gap-1 px-4 py-1 rounded-lg"
+            className="bg-[#f1c40f] cursor-pointer w-fit flex items-center gap-1 px-4 py-1 rounded-lg"
           >
             Filter
             <span>
@@ -31,9 +31,10 @@ const Filter = ({ fetchNews }) => {
                   <li
                     key={i}
                     onClick={(e) => {
+                      const { innerHTML } = e.target;
                       settoggle(false);
-                      dispatch(updateQuery(e.target.innerHTML));
-                      fetchNews(1, e.target.innerHTML);
+                      dispatch(updateQuery(innerHTML));
+                      fetchNews(1, innerHTML);
                     }}
                     className="flex justify-center w-full items-center py-2 border-b-2"
                   >

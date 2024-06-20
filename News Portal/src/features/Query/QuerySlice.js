@@ -9,7 +9,6 @@ export const querySlice = createSlice({
   reducers: {
     updateQuery: (state, action) => {
       state.currentQuery = action.payload;
-      console.log(state.currentQuery);
     },
   },
 });

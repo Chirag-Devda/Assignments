@@ -10,13 +10,13 @@ function App() {
   const [Loading, setLoading] = useState(true);
   const [Error, setError] = useState(null);
 
-  const fetchNews = async (page, q) => {
+  const fetchNews = async (page, query) => {
     try {
       setLoading(true);
       var url =
         "https://newsapi.org/v2/everything?" +
         "q=" +
-        q +
+        query +
         "&language=en&" +
         "from=2024-06-01&" +
         "to=2024-06-01&" +
@@ -26,11 +26,12 @@ function App() {
         "&sortBy=popularity&" +
         "apiKey=77055f43bb504908ab9eb76335894ef6";
 
-      console.log("Fetching URL:", url);
-      console.log(`fetching page ${page} of query ${q}`);
-
       let data = await fetch(url);
       let response = await data.json();
+
+      console.log("Fetching URL:", url);
+      console.log(`fetching page ${page} of query ${query}`);
+
       if (response.totalResults > 0) {
         console.log(response);
         let filteredResponse = response.articles.filter(

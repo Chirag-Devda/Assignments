@@ -1,23 +1,46 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { next, previous } from "../features/Pagination/PaginationSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Newses = ({ Loading, Error, filterNews, fetchNews }) => {
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.page.currentPage);
   const currentQuery = useSelector((state) => state.query.currentQuery);
-  useEffect(() => {
-    console.log(`currentPage is ${currentPage} and Query is ${currentQuery}`);
-  }, [currentPage]);
+
   if (Loading) {
     return <p>Loading...</p>;
   }
   if (Error) {
-    return <p>Error:{Error.message}</p>;
+    toast.error(Error.message, {
+      position: "top-right",
+      description: Error.message,
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   }
 
   return (
     <div className="gap-6 max-w-[1280px] mx-auto">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        limit={1}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      ></ToastContainer>
       <h1 className="text-[30px] ml-4 font-bold ">Breaking News</h1>
       <div className="CardsContainer mx-auto flex gap-y-3 gap-x-10 flex-wrap justify-center md:justify-normal mt-7 p-2 sm:p-5">
         {filterNews?.map(({ title, urlToImage, description, url }, i) => (
