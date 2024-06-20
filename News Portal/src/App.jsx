@@ -1,6 +1,4 @@
-import Navbar from "./components/Navbar.jsx";
-import Filter from "./components/Filter.jsx";
-import Newses from "./components/Newses.jsx";
+import { Filter, Navbar, Newses } from "./components";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
