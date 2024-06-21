@@ -46,49 +46,47 @@ const Newses = ({ Loading, Error, filterNews, fetchNews }) => {
         {filterNews?.map(({ title, urlToImage, description, url }, i) => (
           <div
             key={i}
-            className="Card flex flex-row sm:flex-col p-2 w-fit sm:w-[200px] border-2 rounded-lg bg-white"
+            className="Card max-h-[150px] sm:max-h-[450px] text-black flex flex-row sm:flex-col p-2 w-[90vw] sm:w-[250px] border-2 shadow-xl rounded-lg"
           >
-            <div className="flex items-center">
+            <div className="flex sm:items-center">
               <img
                 src={urlToImage}
                 alt="image"
-                className="sm:w-fit h-full w-[250px] rounded-lg"
+                className="sm:h-[180px] max-w-[100px] sm:w-full  sm:max-w-full rounded-lg object-center"
               />
             </div>
             <div className="content cursor-pointer">
               <a href={url}>
-                <h5 className="title md:text-[18px] px-2 font-bold from-neutral-950">
-                  {title}
+                <h5 className="title md:text-[18px] px-2 font-bold ">
+                  {title.slice(0, 30)}...
                 </h5>
-                <p className="px-2 text-[14px] md:text-[18px] ">
-                  {description}
+                <p className="px-2 text-[14px] ">
+                  {description.slice(0, 130)}...
                 </p>
               </a>
             </div>
           </div>
         ))}
       </div>
-      <div className="pages flex justify-center mt-5 mb-10 gap-4">
+      <div className="pages text-white flex justify-center mt-5 mb-10 gap-4">
         <button
           onClick={() => {
             dispatch(previous());
-
-            fetchNews(currentPage, currentQuery);
+            fetchNews(currentPage, currentQuery, e);
           }}
-          className="bg-blue-600 px-4 rounded-lg"
+          className="bg-blue-600 px-4 rounded-lg "
         >
           &lt; Previous
         </button>
-        <span className="bg-[#e4e2e2] text-[#454444] px-5 rounded-md">
+        <span className="bg-[#e6fe4c] text-[#000000] font-bold px-5 rounded-md">
           {currentPage}
         </span>
         <button
           onClick={(e) => {
-            e.preventDefault();
             dispatch(next());
             fetchNews(currentPage, currentQuery);
           }}
-          className="bg-blue-600 px-4 rounded-lg"
+          className="bg-blue-600 px-4 rounded-lg "
         >
           Next &gt;
         </button>

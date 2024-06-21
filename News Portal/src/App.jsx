@@ -1,11 +1,14 @@
 import { Filter, Navbar, Newses } from "./components";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { reset } from "./features/Pagination/PaginationSlice";
 
 function App() {
   const [filterNews, setfilterNews] = useState();
   const currentPage = useSelector((state) => state.page.currentPage);
   const currentQuery = useSelector((state) => state.query.currentQuery);
+
+  const dispatch = useDispatch();
 
   const [Loading, setLoading] = useState(true);
   const [Error, setError] = useState(null);
@@ -33,13 +36,15 @@ function App() {
       console.log(`fetching page ${page} of query ${query}`);
 
       if (response.totalResults > 0) {
-        console.log(response);
         let filteredResponse = response.articles.filter(
           (item) => item.title != "[Removed]" && item.urlToImage != null
         );
         setfilterNews(filteredResponse);
       } else {
-        console.log("No results found for the given query and date range.");
+        dispatch(reset(1));
+        console.log(
+          `No results found for the given query ${query} and date range of page ${page}`
+        );
       }
     } catch (error) {
       setError(error);

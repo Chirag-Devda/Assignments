@@ -15,8 +15,8 @@ const Navbar = ({ fetchNews }) => {
 
   return (
     <nav className="bg-[#0000b6]">
-      <div className="h-16 flex justify-between px-5 items-center max-w-[1280px] mx-auto">
-        <div className="logo">
+      <div className="h-16 flex justify-center sm:justify-between px-5 items-center max-w-[1280px] mx-auto">
+        <div className="logo sm:block hidden">
           <img width="200px" src="/logo.png" alt="Logo" />
         </div>
         <form className="search flex items-center gap-5 w-fit">
@@ -25,7 +25,7 @@ const Navbar = ({ fetchNews }) => {
             value={search}
             onChange={handleSearch}
             placeholder="Search for latest"
-            className="bg-white text-black px-3  py-1 rounded-md"
+            className="bg-white text-black px-3  py-1 rounded-md w-[60vw] sm:w-full"
           />
           <button
             type="submit"
