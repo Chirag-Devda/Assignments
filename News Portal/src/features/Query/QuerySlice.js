@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentQuery: "daily",
+  currentQuery: "latest",
 };
 export const querySlice = createSlice({
   name: "Query",
