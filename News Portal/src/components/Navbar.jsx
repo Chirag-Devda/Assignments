@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateQuery } from "../features/Query/QuerySlice";
+import { reset } from "../features/Pagination/PaginationSlice";
 
 const Navbar = ({ fetchNews }) => {
   const [search, setsearch] = useState("");
@@ -31,8 +32,8 @@ const Navbar = ({ fetchNews }) => {
             type="submit"
             onClick={(e) => {
               e.preventDefault();
+              dispatch(reset(1));
               dispatch(updateQuery(search));
-              fetchNews(currentPage, search);
             }}
             className="bg-[#c70200] text-white font-medium px-5 py-1 rounded-lg"
           >

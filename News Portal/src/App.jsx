@@ -27,13 +27,13 @@ function App() {
         "page=" +
         page +
         "&sortBy=popularity&" +
-        "apiKey=77055f43bb504908ab9eb76335894ef6";
+        "apiKey=968d7d6a2f204faaae1af367530e573a";
 
       let data = await fetch(url);
       let response = await data.json();
 
       console.log("Fetching URL:", url);
-      console.log(`fetching page ${page} of query ${query}`);
+      console.log(`fetching page ${currentPage} of query ${query}`);
 
       if (response.totalResults > 0) {
         let filteredResponse = response.articles.filter(
@@ -45,6 +45,7 @@ function App() {
         console.log(
           `No results found for the given query ${query} and date range of page ${page}`
         );
+        console.log(`fetching page ${currentPage} of query ${query}`);
       }
     } catch (error) {
       setError(error);
@@ -54,7 +55,7 @@ function App() {
   };
   useEffect(() => {
     fetchNews(currentPage, currentQuery);
-  }, []);
+  }, [currentPage, currentQuery]);
   return (
     <>
       <Navbar fetchNews={fetchNews} />

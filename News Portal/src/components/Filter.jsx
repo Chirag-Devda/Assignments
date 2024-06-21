@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { updateQuery } from "../features/Query/QuerySlice";
+import { reset } from "../features/Pagination/PaginationSlice";
 
 const Filter = ({ fetchNews }) => {
   const [toggle, settoggle] = useState(false);
@@ -31,10 +32,10 @@ const Filter = ({ fetchNews }) => {
                   <li
                     key={i}
                     onClick={(e) => {
+                      dispatch(reset(1));
                       const { innerHTML } = e.target;
-                      settoggle(false);
                       dispatch(updateQuery(innerHTML));
-                      fetchNews(1, innerHTML);
+                      settoggle(false);
                     }}
                     className="flex justify-center w-full items-center py-2 border-b-2"
                   >

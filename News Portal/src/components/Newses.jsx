@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { next, previous } from "../features/Pagination/PaginationSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Newses = ({ Loading, Error, filterNews, fetchNews }) => {
-  const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.page.currentPage);
-  const currentQuery = useSelector((state) => state.query.currentQuery);
-
+  const dispatch = useDispatch();
+  useEffect(() => {}, []);
   if (Loading) {
     return <p>Loading...</p>;
   }
@@ -72,7 +71,6 @@ const Newses = ({ Loading, Error, filterNews, fetchNews }) => {
         <button
           onClick={() => {
             dispatch(previous());
-            fetchNews(currentPage, currentQuery, e);
           }}
           className="bg-blue-600 px-4 rounded-lg "
         >
@@ -82,9 +80,8 @@ const Newses = ({ Loading, Error, filterNews, fetchNews }) => {
           {currentPage}
         </span>
         <button
-          onClick={(e) => {
+          onClick={() => {
             dispatch(next());
-            fetchNews(currentPage, currentQuery);
           }}
           className="bg-blue-600 px-4 rounded-lg "
         >
