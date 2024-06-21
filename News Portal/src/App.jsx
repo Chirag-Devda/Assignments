@@ -4,20 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { reset } from "./features/Pagination/PaginationSlice";
 
 function App() {
+  // State Variables
   const [filterNews, setfilterNews] = useState();
-  const currentPage = useSelector((state) => state.page.currentPage);
-  const currentQuery = useSelector((state) => state.query.currentQuery);
-
-  const dispatch = useDispatch();
-
   const [Loading, setLoading] = useState(true);
   const [Error, setError] = useState(null);
 
+  // Redux state selectors
+  const currentPage = useSelector((state) => state.page.currentPage);
+  const currentQuery = useSelector((state) => state.query.currentQuery);
+  const dispatch = useDispatch();
+
   const fetchNews = async (page, query) => {
     try {
-      // loading before getting data
-      setLoading(true);
+      setLoading(true); // Set loading state while fetching
 
+      // Constructing API URL
       var url =
         "https://newsapi.org/v2/everything?" +
         "q=" +
@@ -33,21 +34,21 @@ function App() {
         "apiKey=" +
         import.meta.env.VITE_API_KEY;
 
-      // fetching data
+      // Fetching data
       let data = await fetch(url);
       let response = await data.json();
 
-      // log the url, currentPage, and query
+      // log the url, currentPage, and query details
       console.log("Fetching URL:", url);
       console.log(`fetching page ${currentPage} of query ${query}`);
 
-      // filtered response by removing all the empty important data
+      // Filtering response
       if (response.totalResults > 0) {
         let filteredResponse = response.articles.filter(
           (item) =>
-            item.title != "[Removed]" &&
-            item.urlToImage != null &&
-            item.description != null,
+            item.title !== "[Removed]" &&
+            item.urlToImage !== null &&
+            item.description !== null,
         );
         if (filteredResponse.length > 0) {
           setfilterNews(filteredResponse);
@@ -56,25 +57,26 @@ function App() {
           console.log("required data was empty");
         }
       } else {
-        dispatch(reset(1));
+        dispatch(reset(1)); // Reset pagination if no results found
         console.log(
           `No results found for the given query ${query} and date range of page ${page}`,
         );
         console.log(`fetching page ${currentPage} of query ${query}`);
       }
     } catch (error) {
-      setError(error);
+      setError(error); // Handle fetch errors
     } finally {
-      // remove the loading after completing
-      setLoading(false);
+      setLoading(false); // remove the loading after completing
     }
   };
+
+  // Fetch news on initial load and whenever currentPage or currentQuery changes
   useEffect(() => {
     fetchNews(currentPage, currentQuery);
   }, [currentPage, currentQuery]);
   return (
     <>
-      <Navbar fetchNews={fetchNews} />
+      <Navbar />
       <Filter />
       <Newses Loading={Loading} Error={Error} filterNews={filterNews} />
     </>

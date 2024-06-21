@@ -12,13 +12,22 @@ const Navbar = () => {
     setsearch(e.target.value);
   };
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    dispatch(reset(1)); // Reset pagination to page 1
+    dispatch(updateQuery(search)); // Update query with the new search term
+  };
+
   return (
     <nav className="bg-[#0000b6]">
       <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-center px-5 sm:justify-between">
         <div className="logo hidden sm:block">
           <img width="200px" src="/logo.png" alt="Logo" />
         </div>
-        <form className="search flex w-fit items-center gap-5">
+        <form
+          className="search flex w-fit items-center gap-5"
+          onSubmit={handleFormSubmit}
+        >
           <input
             type="search"
             value={search}
@@ -28,11 +37,6 @@ const Navbar = () => {
           />
           <button
             type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              dispatch(reset(1));
-              dispatch(updateQuery(search));
-            }}
             className="rounded-lg bg-[#c70200] px-5 py-1 font-medium text-white"
           >
             Search
