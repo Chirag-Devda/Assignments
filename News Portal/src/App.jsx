@@ -27,8 +27,9 @@ function App() {
         "page=" +
         page +
         "&sortBy=popularity&" +
-        "apiKey=968d7d6a2f204faaae1af367530e573a";
-
+        "apiKey=" +
+        import.meta.env.VITE_API_KEY;
+      console.log(import.meta.env.VITE_API_KEY);
       let data = await fetch(url);
       let response = await data.json();
 
@@ -37,13 +38,13 @@ function App() {
 
       if (response.totalResults > 0) {
         let filteredResponse = response.articles.filter(
-          (item) => item.title != "[Removed]" && item.urlToImage != null
+          (item) => item.title != "[Removed]" && item.urlToImage != null,
         );
         setfilterNews(filteredResponse);
       } else {
         dispatch(reset(1));
         console.log(
-          `No results found for the given query ${query} and date range of page ${page}`
+          `No results found for the given query ${query} and date range of page ${page}`,
         );
         console.log(`fetching page ${currentPage} of query ${query}`);
       }

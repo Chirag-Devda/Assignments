@@ -12,13 +12,13 @@ const Filter = () => {
 
   return (
     <>
-      <div className="h-14 flex justify-end px-5 items-center max-w-[1280px] mx-auto">
-        <div className="flex flex-col relative gap-2 items-end">
+      <div className="mx-auto flex h-14 max-w-[1280px] items-center justify-end px-5">
+        <div className="relative flex flex-col items-end gap-2">
           <h4
             onClick={() => {
               settoggle((prev) => (prev = !prev));
             }}
-            className="bg-[#f1c40f] cursor-pointer w-fit flex items-center gap-1 px-4 py-1 rounded-lg"
+            className="flex w-fit cursor-pointer items-center gap-1 rounded-lg bg-[#f1c40f] px-4 py-1"
           >
             Filter
             <span>
@@ -26,8 +26,8 @@ const Filter = () => {
             </span>
           </h4>
           {toggle && (
-            <div className="w-[140px] absolute top-14 right-0 border bg-[#f1faee] text-black rounded-md">
-              <ul className="cursor-pointer flex flex-col gap-2 w-full">
+            <div className="absolute right-0 top-14 w-[140px] rounded-md border bg-[#f1faee] text-black">
+              <ul className="flex w-full cursor-pointer flex-col gap-2">
                 {filters.map((item, i) => (
                   <li
                     key={i}
@@ -37,7 +37,7 @@ const Filter = () => {
                       dispatch(updateQuery(innerHTML));
                       settoggle(false);
                     }}
-                    className="flex justify-center w-full items-center py-2 border-b-2"
+                    className="flex w-full items-center justify-center border-b-2 py-2"
                   >
                     {item}
                   </li>

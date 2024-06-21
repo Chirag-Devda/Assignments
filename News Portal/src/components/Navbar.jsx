@@ -6,8 +6,6 @@ import { reset } from "../features/Pagination/PaginationSlice";
 const Navbar = () => {
   const [search, setsearch] = useState("");
 
-  const currentPage = useSelector((state) => state.page.currentPage);
-
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
@@ -16,17 +14,17 @@ const Navbar = () => {
 
   return (
     <nav className="bg-[#0000b6]">
-      <div className="h-16 flex justify-center sm:justify-between px-5 items-center max-w-[1280px] mx-auto">
-        <div className="logo sm:block hidden">
+      <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-center px-5 sm:justify-between">
+        <div className="logo hidden sm:block">
           <img width="200px" src="/logo.png" alt="Logo" />
         </div>
-        <form className="search flex items-center gap-5 w-fit">
+        <form className="search flex w-fit items-center gap-5">
           <input
             type="search"
             value={search}
             onChange={handleSearch}
             placeholder="Search for latest"
-            className="bg-white text-black px-3  py-1 rounded-md w-[60vw] sm:w-full"
+            className="w-[60vw] rounded-md bg-white px-3 py-1 text-black sm:w-full"
           />
           <button
             type="submit"
@@ -35,7 +33,7 @@ const Navbar = () => {
               dispatch(reset(1));
               dispatch(updateQuery(search));
             }}
-            className="bg-[#c70200] text-white font-medium px-5 py-1 rounded-lg"
+            className="rounded-lg bg-[#c70200] px-5 py-1 font-medium text-white"
           >
             Search
           </button>
