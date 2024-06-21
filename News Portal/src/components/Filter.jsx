@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { updateQuery } from "../features/Query/QuerySlice";
 import { reset } from "../features/Pagination/PaginationSlice";
 
-const Filter = ({ fetchNews }) => {
+const Filter = () => {
   const [toggle, settoggle] = useState(false);
   const filters = ["Business", "Technology", "Entertainment"];
 

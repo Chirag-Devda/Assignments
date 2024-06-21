@@ -58,14 +58,9 @@ function App() {
   }, [currentPage, currentQuery]);
   return (
     <>
-      <Navbar fetchNews={fetchNews} />
-      <Filter fetchNews={fetchNews} />
-      <Newses
-        Loading={Loading}
-        Error={Error}
-        filterNews={filterNews}
-        fetchNews={fetchNews}
-      />
+      <Navbar />
+      <Filter />
+      <Newses Loading={Loading} Error={Error} filterNews={filterNews} />
     </>
   );
 }

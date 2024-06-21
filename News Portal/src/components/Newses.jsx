@@ -4,7 +4,7 @@ import { next, previous } from "../features/Pagination/PaginationSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Newses = ({ Loading, Error, filterNews, fetchNews }) => {
+const Newses = ({ Loading, Error, filterNews }) => {
   const currentPage = useSelector((state) => state.page.currentPage);
   const dispatch = useDispatch();
   useEffect(() => {}, []);

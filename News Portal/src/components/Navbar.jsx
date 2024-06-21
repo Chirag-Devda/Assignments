@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateQuery } from "../features/Query/QuerySlice";
 import { reset } from "../features/Pagination/PaginationSlice";
 
-const Navbar = ({ fetchNews }) => {
+const Navbar = () => {
   const [search, setsearch] = useState("");
 
   const currentPage = useSelector((state) => state.page.currentPage);
