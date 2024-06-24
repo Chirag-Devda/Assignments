@@ -66,7 +66,7 @@ const Newses = ({ Loading, Error, filterNews }) => {
               />
             </div>
             <div className="content cursor-pointer">
-              <a href={url}>
+              <a href={url} target="_blank">
                 <h5 className="title px-2 font-bold md:text-[18px]">
                   {title.slice(0, 30)}...
                 </h5>
