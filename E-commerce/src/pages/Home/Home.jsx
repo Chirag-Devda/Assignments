@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <Navbar />
+      <Navbar Login={true} seller={true} />
       <div className="w-screen overflow-hidden h-[calc(100vh-72px)] relative">
         <img
           src={Lending}
