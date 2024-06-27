@@ -25,14 +25,14 @@ const Slider = () => {
   return (
     <div
       style={{ backgroundImage: `url(${sliderImages[currentImage].image})` }}
-      className="w-screen h-[60vh]  relative group"
+      className="w-screen h-[30vh] lg:h-[70vh]  relative group"
     >
       <div
         style={{
           backgroundImage: `url(${sliderImages[currentImage].image})`,
           backgroundSize: "70%",
         }}
-        className=" w-full h-full backdrop-blur-2xl bg-cover bg-center bg-no-repeat duration-500"
+        className=" w-full h-full  backdrop-blur-2xl bg-cover bg-center bg-no-repeat duration-500"
       ></div>
 
       {/* Left Arrow */}
