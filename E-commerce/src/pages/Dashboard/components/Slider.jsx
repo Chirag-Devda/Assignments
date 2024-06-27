@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { sliderImages } from "../../../constants";
 import { MdOutlineChevronLeft } from "react-icons/md";
 import { MdOutlineChevronRight } from "react-icons/md";
 import { VscCircleFilled } from "react-icons/vsc";
 
-const Slider = () => {
+const Slider = ({ array }) => {
+  const sliderImages = array;
   const [currentImage, setcurrentImage] = useState(0);
 
   const previous = () => {

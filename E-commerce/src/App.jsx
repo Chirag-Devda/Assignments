@@ -1,4 +1,4 @@
-import { Home, Dashboard } from "./pages";
+import { Home, Dashboard, Products, SingleProduct } from "./pages";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -11,6 +11,14 @@ function App() {
     {
       path: "/dashboard",
       element: <Dashboard />,
+    },
+    {
+      path: "/products",
+      element: <Products />,
+    },
+    {
+      path: `/products/:category`,
+      element: <SingleProduct />,
     },
   ]);
   return <RouterProvider router={router} />;

@@ -1,3 +1,4 @@
+import { image1, image2, image3 } from "../../../assets";
 import { Lending } from "../../../images";
 
 const TopProducts = () => {
@@ -18,22 +19,22 @@ const TopProducts = () => {
         <div className="flex justify-center sm:justify-between flex-wrap gap-5 sm:-mt-24 -mt-80 px-5">
           <div className="Card sm:h-[200px] h-[170px] w-full sm:w-[250px]">
             <img
-              className="h-full w-full rounded-xl"
-              src={Lending}
+              className="h-full w-full rounded-xl cursor-pointer  shadow-lg shadow-slate-600 sm:hover:scale-110 sm:duration-500"
+              src={image1}
               alt="Image"
             />
           </div>
           <div className="Card h-[200px] w-full sm:w-[250px]">
             <img
-              className="h-full w-full rounded-xl"
-              src={Lending}
+              className="h-full w-full rounded-xl cursor-pointer  shadow-lg shadow-slate-600 sm:hover:scale-110 sm:duration-500"
+              src={image2}
               alt="Image"
             />
           </div>
           <div className="Card h-[200px] w-full sm:w-[250px]">
             <img
-              className="h-full w-full rounded-xl"
-              src={Lending}
+              className="h-full w-full rounded-xl cursor-pointer shadow-lg shadow-slate-600  sm:hover:scale-110 sm:duration-500"
+              src={image3}
               alt="Image"
             />
           </div>
