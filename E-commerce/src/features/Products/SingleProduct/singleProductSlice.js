@@ -16,7 +16,7 @@ export const singleProductSlice = createSlice({
     },
     fetchProductSuccess(state, action) {
       state.loading = false;
-      state.singleProduct = action.payload.data;
+      state.product = action.payload.data;
       state.image = action.payload.image;
     },
     fetchProductFailure(state, action) {

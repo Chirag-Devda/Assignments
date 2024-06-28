@@ -3,28 +3,27 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Home, Dashboard, Products, SingleProduct, Cart } from "./pages";
 import { useDispatch } from "react-redux";
-import { setProducts } from "./features/Products/AllProducts/ProductsSlice";
+import {
+  fetchAllProductFailure,
+  fetchAllProductStart,
+  fetchAllProductSuccess,
+} from "./features/Products/AllProducts/ProductsSlice";
 
 function App() {
-  const [loading, setloading] = useState(true);
-  const [error, seterror] = useState();
-
   const dispatch = useDispatch();
 
   const allProductsFetched = async () => {
+    dispatch(fetchAllProductStart());
+
     const API_URL = "https://api.pujakaitem.com/api/products";
     try {
-      setloading(true); // set loader before fetching
-
       const response = await fetch(API_URL);
       const data = await response.json();
 
-      dispatch(setProducts(data));
+      dispatch(fetchAllProductSuccess(data));
     } catch (error) {
+      dispatch(fetchAllProductFailure(error.message));
       console.error("Error fetching products:", error);
-      seterror(error);
-    } finally {
-      setloading(false); // after fetching remove loader
     }
   };
   useEffect(() => {
@@ -42,7 +41,7 @@ function App() {
     },
     {
       path: "/products",
-      element: <Products loading={loading} />,
+      element: <Products />,
     },
     {
       path: `/products/:category`,

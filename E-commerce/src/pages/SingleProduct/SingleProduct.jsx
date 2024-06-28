@@ -17,7 +17,7 @@ const SingleProduct = () => {
     const data = localStorage.getItem("singleProduct");
     const image = localStorage.getItem("singleProductImage");
 
-    if (data && Image) {
+    if (data && image) {
       dispatch(fetchProductSuccess({ data: JSON.parse(data), image: image }));
     }
   }, []);
@@ -34,7 +34,7 @@ const SingleProduct = () => {
     stock,
     reviews,
     stars,
-  } = useSelector((state) => state.singleProduct.singleProduct);
+  } = useSelector((state) => state.singleProduct.product);
 
   const Image = useSelector((state) => state.singleProduct.image);
 

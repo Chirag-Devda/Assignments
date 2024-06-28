@@ -4,7 +4,6 @@ import {
   fetchProductFailure,
   fetchProductStart,
   fetchProductSuccess,
-  setsingleProduct,
 } from "../features/Products/SingleProduct/singleProductSlice";
 
 const Card = ({ id, name, description, price, image }) => {
