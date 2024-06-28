@@ -8,11 +8,33 @@ import { Footer, Navbar, Services } from "../../components";
 
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchProductSuccess } from "../../features/Products/SingleProduct/singleProductSlice";
+import { addItemToCart } from "../../features/cart/CartSlice";
 
 const SingleProduct = () => {
+  const [quantity, setQuantity] = useState(1);
+
   const dispatch = useDispatch();
+
+  const handleIncrement = () => setQuantity(quantity + 1);
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleCart = (product, quantity, thumbnail) => {
+    dispatch(
+      addItemToCart({
+        product: product,
+        quantity: quantity,
+        thumbnail: thumbnail,
+      })
+    );
+  };
+
   useEffect(() => {
     const data = localStorage.getItem("singleProduct");
     const image = localStorage.getItem("singleProductImage");
@@ -21,6 +43,10 @@ const SingleProduct = () => {
       dispatch(fetchProductSuccess({ data: JSON.parse(data), image: image }));
     }
   }, []);
+
+  const data = useSelector((state) => state.singleProduct.product);
+
+  const ProductImage = useSelector((state) => state.singleProduct.image);
 
   const {
     id,
@@ -36,15 +62,17 @@ const SingleProduct = () => {
     stars,
   } = useSelector((state) => state.singleProduct.product);
 
-  const Image = useSelector((state) => state.singleProduct.image);
-
   return (
     <>
       <Navbar cart={true} home={true} products={true} Login={true} />
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <img className="h-full object-contain" src={Image} alt="Product" />
+            <img
+              className="h-full object-contain"
+              src={ProductImage}
+              alt="Product"
+            />
           </div>
           <div className="bg-white p-6 flex flex-col gap-5">
             <h2 className="text-5xl font-medium">{name}</h2>
@@ -72,18 +100,29 @@ const SingleProduct = () => {
 
             <div className="flex justify-between px-5">
               <div className="">
-                <button className="bg-[#2874f0] py-2 px-2 rounded-lg">
+                <button
+                  onClick={handleDecrement}
+                  className="bg-[#2874f0] py-2 px-2 rounded-lg"
+                >
                   <FaMinus />
                 </button>
                 <span className="bg-slate-200 px-5 py-1 mx-3 rounded-lg">
-                  1
+                  {quantity}
                 </span>
-                <button className="bg-[#2874f0] py-2 px-2 rounded-lg">
+                <button
+                  onClick={handleIncrement}
+                  className="bg-[#2874f0] py-2 px-2 rounded-lg"
+                >
                   <FaPlus />
                 </button>
               </div>
               <Link to="/cart">
-                <button className="bg-[#2874f0] text-white font-bold px-5 py-2 rounded-lg flex items-center gap-3">
+                <button
+                  onClick={() => {
+                    handleCart(data, quantity, ProductImage);
+                  }}
+                  className="bg-[#2874f0] text-white font-bold px-5 py-2 rounded-lg flex items-center gap-3"
+                >
                   <FaCartPlus size={20} />
                   Add to Cart
                 </button>
