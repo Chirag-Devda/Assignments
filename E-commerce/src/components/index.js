@@ -3,5 +3,5 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Card from "./Card";
 import Services from "./Services";
-
-export { Navbar, Header, Footer, Card, Services };
+import Sidenav from "./Sidenav";
+export { Navbar, Header, Footer, Card, Services, Sidenav };

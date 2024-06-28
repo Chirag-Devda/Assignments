@@ -1,4 +1,5 @@
-import { Home, Dashboard, Products, SingleProduct } from "./pages";
+import Drawer from "./components/Sidenav";
+import { Home, Dashboard, Products, SingleProduct, Cart } from "./pages";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -19,6 +20,10 @@ function App() {
     {
       path: `/products/:category`,
       element: <SingleProduct />,
+    },
+    {
+      path: `/cart`,
+      element: <Cart />,
     },
   ]);
   return <RouterProvider router={router} />;

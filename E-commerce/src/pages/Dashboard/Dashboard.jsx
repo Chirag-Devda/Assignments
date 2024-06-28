@@ -3,15 +3,13 @@ import Slider from "./components/Slider";
 import TopProducts from "./components/TopProducts";
 import About from "./components/About";
 
-import { sliderImages } from "../../constants";
-
 const Dashboard = () => {
   return (
     <>
-      <Navbar cart={true} home={true} products={true} />
+      <Navbar cart={true} home={true} products={true} Login={true} />
       <Header />
 
-      <Slider array={sliderImages} />
+      <Slider />
       <TopProducts />
       <About />
       <Footer />

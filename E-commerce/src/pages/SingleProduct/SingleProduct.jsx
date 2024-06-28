@@ -6,11 +6,12 @@ import { FaCartPlus } from "react-icons/fa";
 
 import { Navbar, Services } from "../../components";
 import { image2 } from "../../assets";
+import { Link } from "react-router-dom";
 
 const SingleProduct = () => {
   return (
     <>
-      <Navbar cart={true} home={true} products={true} />
+      <Navbar cart={true} home={true} products={true} Login={true} />
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -61,10 +62,12 @@ const SingleProduct = () => {
                   <FaPlus />
                 </button>
               </div>
-              <button className="bg-[#2874f0] text-white font-bold px-5 py-2 rounded-lg flex items-center gap-3">
-                <FaCartPlus size={20} />
-                Add to Cart
-              </button>
+              <Link to="/cart">
+                <button className="bg-[#2874f0] text-white font-bold px-5 py-2 rounded-lg flex items-center gap-3">
+                  <FaCartPlus size={20} />
+                  Add to Cart
+                </button>
+              </Link>
             </div>
           </div>
         </div>

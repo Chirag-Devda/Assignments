@@ -1,11 +1,29 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { MdOutlineChevronLeft } from "react-icons/md";
 import { MdOutlineChevronRight } from "react-icons/md";
 import { VscCircleFilled } from "react-icons/vsc";
+import { useLocation } from "react-router-dom";
 
-const Slider = ({ array }) => {
-  const sliderImages = array;
+import {
+  productsPageSliderImages,
+  sliderImages as homePageImages,
+} from "../../../constants";
+
+const Slider = () => {
+  const location = useLocation();
+
+  const [sliderImages, setsliderImages] = useState([]);
   const [currentImage, setcurrentImage] = useState(0);
+
+  useEffect(() => {
+    if (location.pathname === "/products") {
+      setsliderImages(productsPageSliderImages);
+    } else if (location.pathname === "/dashboard") {
+      setsliderImages(homePageImages);
+    }
+    console.log(sliderImages);
+  }, []);
 
   const previous = () => {
     const firstImage = currentImage === 0;
@@ -24,12 +42,12 @@ const Slider = ({ array }) => {
 
   return (
     <div
-      style={{ backgroundImage: `url(${sliderImages[currentImage].image})` }}
+      style={{ backgroundImage: `url(${sliderImages[currentImage]?.image})` }}
       className="w-screen h-[30vh] lg:h-[70vh]  relative group"
     >
       <div
         style={{
-          backgroundImage: `url(${sliderImages[currentImage].image})`,
+          backgroundImage: `url(${sliderImages[currentImage]?.image})`,
           backgroundSize: "70%",
         }}
         className=" w-full h-full  backdrop-blur-2xl bg-cover bg-center bg-no-repeat duration-500"
