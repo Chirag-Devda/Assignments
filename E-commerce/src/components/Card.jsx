@@ -1,19 +1,28 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setsingleProduct } from "../features/Products/SingleProduct/singleProductSlice";
+import {
+  fetchProductFailure,
+  fetchProductStart,
+  fetchProductSuccess,
+  setsingleProduct,
+} from "../features/Products/SingleProduct/singleProductSlice";
 
 const Card = ({ id, name, description, price, image }) => {
   const dispatch = useDispatch();
 
   const singleProductFetchedAndSaved = async (id, image) => {
+    dispatch(fetchProductStart());
+
     const API_URL = `https://api.pujakaitem.com/api/products/${id}`;
     try {
       const response = await fetch(API_URL);
       const data = await response.json();
-      dispatch(setsingleProduct({ data: data, image: image }));
+
+      dispatch(fetchProductSuccess({ data: data, image: image }));
       localStorage.setItem("singleProduct", JSON.stringify(data)); // saved to localStorage
       localStorage.setItem("singleProductImage", image);
     } catch (error) {
+      dispatch(fetchProductFailure(error.message));
       console.error("Error fetching products:", error);
     }
   };

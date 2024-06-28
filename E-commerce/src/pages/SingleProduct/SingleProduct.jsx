@@ -6,18 +6,19 @@ import { FaCartPlus } from "react-icons/fa";
 
 import { Footer, Navbar, Services } from "../../components";
 
-import { Link, json } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { setsingleProduct } from "../../features/Products/SingleProduct/singleProductSlice";
+import { fetchProductSuccess } from "../../features/Products/SingleProduct/singleProductSlice";
 
 const SingleProduct = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const data = localStorage.getItem("singleProduct");
     const image = localStorage.getItem("singleProductImage");
-    if (data) {
-      dispatch(setsingleProduct({ data: JSON.parse(data), image: image }));
+
+    if (data && Image) {
+      dispatch(fetchProductSuccess({ data: JSON.parse(data), image: image }));
     }
   }, []);
 
