@@ -22,7 +22,6 @@ const Slider = () => {
     } else if (location.pathname === "/dashboard") {
       setsliderImages(homePageImages);
     }
-    console.log(sliderImages);
   }, []);
 
   const previous = () => {

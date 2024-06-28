@@ -1,6 +1,23 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setsingleProduct } from "../features/Products/SingleProduct/singleProductSlice";
 
-const Card = () => {
+const Card = ({ id, name, description, price, image }) => {
+  const dispatch = useDispatch();
+
+  const singleProductFetchedAndSaved = async (id, image) => {
+    const API_URL = `https://api.pujakaitem.com/api/products/${id}`;
+    try {
+      const response = await fetch(API_URL);
+      const data = await response.json();
+      dispatch(setsingleProduct({ data: data, image: image }));
+      localStorage.setItem("singleProduct", JSON.stringify(data)); // saved to localStorage
+      localStorage.setItem("singleProductImage", image);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+
   //  {
   //     "id": "thapaserialnoa",
   //     "name": "iphone x",
@@ -20,22 +37,25 @@ const Card = () => {
   return (
     <div className="bg-white shadow-lg border-2 rounded-lg overflow-hidden">
       <img
-        className="w-full h-36 p-2  object-fill"
-        src="https://th.bing.com/th/id/OIP._gPWltB6wwknn6_syte4eQHaEo?rs=1&pid=ImgDetMain"
+        className="w-full sm:h-40 h-36 p-2  object-fill"
+        src={image}
         alt="Card image"
       />
       <div className="p-6">
-        <h2 className="text-xl font-semibold mb-2">iphone x</h2>
-        <p className="text-gray-700 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-          nec...
-        </p>
+        <h2 className="text-xl font-semibold mb-2">{name}</h2>
+        <p className="text-gray-700 mb-4">{description.slice(0, 100)}...</p>
+
         <div className="flex justify-between sm:flex-row flex-col gap-3 sm:gap-0">
           <p className="text-[#e55] hover:text-[#ff0000 font-medium">
-            Rs.90,000
+            &#x20b9; {price}
           </p>
           <Link to={`/products/${category}`}>
-            <button className="text-white bg-blue-500 px-2 py-1 rounded-lg">
+            <button
+              onClick={() => {
+                singleProductFetchedAndSaved(id, image);
+              }}
+              className="text-white bg-blue-500 px-2 py-1 rounded-lg"
+            >
               View Product
             </button>
           </Link>
