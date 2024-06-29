@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-
-import ItemCard from "./components/ItemCard.jsx";
-import { saveItemsToLocalStorage } from "../../features/cart/CartSlice.js";
+import { useSelector } from "react-redux";
 
 import { Navbar } from "../../components";
+
+import ItemCard from "./components/ItemCard.jsx";
 
 const Cart = () => {
   const items = useSelector((state) => state.cart.items);

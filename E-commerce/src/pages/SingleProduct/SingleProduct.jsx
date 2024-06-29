@@ -4,11 +4,12 @@ import { GiConfirmed } from "react-icons/gi";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
 
-import { Footer, Navbar, Services } from "../../components";
-
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+
+import { Footer, Navbar, Services } from "../../components";
+
 import { fetchProductSuccess } from "../../features/Products/SingleProduct/singleProductSlice";
 import {
   addItemToCart,
@@ -35,7 +36,6 @@ const SingleProduct = () => {
   const ProductImage = useSelector((state) => state.singleProduct.image);
 
   const [quantity, setQuantity] = useState(1);
-
   const dispatch = useDispatch();
 
   const handleIncrement = () => setQuantity(quantity + 1);
