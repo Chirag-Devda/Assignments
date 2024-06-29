@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { Home, Dashboard, Products, SingleProduct, Cart } from "./pages";
-import { useDispatch } from "react-redux";
 import {
   fetchAllProductFailure,
   fetchAllProductStart,
   fetchAllProductSuccess,
 } from "./features/Products/AllProducts/ProductsSlice";
+import { loadItemsFromLocalStorage } from "./features/cart/CartSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
   };
   useEffect(() => {
     allProductsFetched();
+    dispatch(loadItemsFromLocalStorage());
   }, []);
 
   const router = createBrowserRouter([

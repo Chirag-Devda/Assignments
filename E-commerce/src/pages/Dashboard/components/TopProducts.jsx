@@ -15,7 +15,7 @@ const TopProducts = () => {
         </p>
       </div>
       <div className="h-[auto] lg:h-[60vh] pb-10 mx-auto mt-5 rounded-lg border shadow-lg bg-[#fff]">
-        <div className="sm:h-[30vh] h-[50vh] bg-slate-200 rounded-lg"></div>
+        <div className="sm:h-[30vh] h-[50vh] bg-blue-gray-100 rounded-lg"></div>
         <div className="flex justify-center sm:justify-between flex-wrap gap-5 sm:-mt-24 -mt-80 px-5">
           <div className="Card sm:h-[200px] h-[170px] w-full sm:w-[250px]">
             <img

@@ -6,12 +6,16 @@ import Sidenav from "./Sidenav";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Navbar = ({ Login, seller, cart, home, products }) => {
   const [open, setOpen] = useState(false);
 
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
+
+  const items = useSelector((state) => state.cart.items);
+  console.log(items.length);
 
   return (
     <nav
@@ -80,9 +84,11 @@ const Navbar = ({ Login, seller, cart, home, products }) => {
                   color="white"
                   size={25}
                 />
-                <div className="absolute -top-4 -right-2 bg-red-500 text-white text-[12px] w-5 text-center rounded-full">
-                  1
-                </div>
+                {items.length > 0 && (
+                  <div className="absolute  -top-4 -right-2 bg-red-500 text-white text-[12px] w-5 text-center rounded-full">
+                    {items.length}
+                  </div>
+                )}
               </div>
             </Link>
           )}

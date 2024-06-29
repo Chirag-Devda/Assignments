@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
-import { Navbar } from "../../components";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+
 import ItemCard from "./components/ItemCard.jsx";
+import { saveItemsToLocalStorage } from "../../features/cart/CartSlice.js";
+
+import { Navbar } from "../../components";
 
 const Cart = () => {
+  const items = useSelector((state) => state.cart.items);
+
+  const cartTotal = items.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
   return (
     <>
       <Navbar Login={true} cart={true} home={true} products={true} />
@@ -18,14 +29,9 @@ const Cart = () => {
               <p className="pt-1">Continue Shopping</p>
             </div>
             <div className="h-[80vh] shadow-lg overflow-scroll">
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
-              <ItemCard />
+              {items.map((item, index) => (
+                <ItemCard {...item} key={index} />
+              ))}
             </div>
           </div>
           {/* Bill */}
@@ -37,7 +43,7 @@ const Cart = () => {
             <div className="flex flex-col text-[#434343] font-medium">
               <div className="flex justify-between">
                 <p>Sub Total</p>
-                <p>$829</p>
+                <p>{cartTotal}</p>
               </div>
               <div className="flex justify-between">
                 <p>Delivery Charges</p>
@@ -51,7 +57,7 @@ const Cart = () => {
             <div className="border-2 opacity-[0.4] my-3 border-[#a09e9e]" />
             <div className="flex justify-between text-[#434343] font-medium text-[18px]">
               <p>Estimated Total</p>
-              <p>$7856</p>
+              <p>{cartTotal}</p>
             </div>
             <div className="border-2 opacity-[0.4] my-3 border-[#a09e9e]" />
             <button className="bg-blue-600 w-fit mx-auto py-3 px-4 rounded-lg text-white font-bold hover:scale-110 duration-500">

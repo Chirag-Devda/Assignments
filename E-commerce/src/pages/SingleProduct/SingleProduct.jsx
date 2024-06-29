@@ -10,9 +10,30 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchProductSuccess } from "../../features/Products/SingleProduct/singleProductSlice";
-import { addItemToCart } from "../../features/cart/CartSlice";
+import {
+  addItemToCart,
+  saveItemsToLocalStorage,
+} from "../../features/cart/CartSlice";
 
 const SingleProduct = () => {
+  const {
+    id,
+    name,
+    company,
+    price,
+    colors,
+    description,
+    category,
+    featured,
+    stock,
+    reviews,
+    stars,
+  } = useSelector((state) => state.singleProduct.product);
+
+  const data = useSelector((state) => state.singleProduct.product);
+
+  const ProductImage = useSelector((state) => state.singleProduct.image);
+
   const [quantity, setQuantity] = useState(1);
 
   const dispatch = useDispatch();
@@ -33,6 +54,7 @@ const SingleProduct = () => {
         thumbnail: thumbnail,
       })
     );
+    dispatch(saveItemsToLocalStorage());
   };
 
   useEffect(() => {
@@ -44,29 +66,11 @@ const SingleProduct = () => {
     }
   }, []);
 
-  const data = useSelector((state) => state.singleProduct.product);
-
-  const ProductImage = useSelector((state) => state.singleProduct.image);
-
-  const {
-    id,
-    name,
-    company,
-    price,
-    colors,
-    description,
-    category,
-    featured,
-    stock,
-    reviews,
-    stars,
-  } = useSelector((state) => state.singleProduct.product);
-
   return (
     <>
       <Navbar cart={true} home={true} products={true} Login={true} />
       <div className="max-w-screen-xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <div>
             <img
               className="h-full object-contain"
@@ -76,8 +80,8 @@ const SingleProduct = () => {
           </div>
           <div className="bg-white p-6 flex flex-col gap-5">
             <h2 className="text-5xl font-medium">{name}</h2>
-            <p>{stars}</p>
-            <p>{reviews}</p>
+            <p>Ratings: {stars}</p>
+            <p>Reviews: {reviews}</p>
             <p className="text-gray-500 text-lg">
               MRP: <del className="">{price}</del>
             </p>
@@ -97,7 +101,6 @@ const SingleProduct = () => {
             <p>
               Brand: <b>{company}</b>
             </p>
-
             <div className="flex justify-between px-5">
               <div className="">
                 <button
