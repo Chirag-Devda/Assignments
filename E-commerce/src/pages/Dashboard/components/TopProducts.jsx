@@ -43,10 +43,8 @@ const TopProducts = () => {
         <div className="sm:h-[30vh] h-[50vh] bg-blue-gray-100 rounded-lg"></div>
         <div className="flex justify-center sm:justify-between flex-wrap gap-5 sm:-mt-24 -mt-80 px-5">
           {data.slice(4, 7).map(({ id, image, name }) => (
-            <Link to={`/products/${name}`}>
-              {" "}
+            <Link to={`/products/${name}`} key={id}>
               <div
-                key={id}
                 onClick={() => {
                   singleProductFetchedAndSaved(id, image);
                 }}

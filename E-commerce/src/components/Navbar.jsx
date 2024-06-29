@@ -6,15 +6,25 @@ import Sidenav from "./Sidenav";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllProducts } from "../features/Products/AllProducts/ProductsSlice";
 
 const Navbar = ({ Login, seller, cart, home, products }) => {
   const items = useSelector((state) => state.cart.items);
 
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
+
+  const allProductsFetched = async () => {
+    try {
+      await dispatch(fetchAllProducts());
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
 
   return (
     <nav
@@ -55,7 +65,7 @@ const Navbar = ({ Login, seller, cart, home, products }) => {
             </Link>
           )}
           {products && (
-            <Link to="/products">
+            <Link onClick={allProductsFetched} to="/products">
               <h1 className="sm:block hidden text-white text-[23px] leading-[1px] font-medium hover:cursor-pointer ">
                 Products
               </h1>

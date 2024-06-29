@@ -3,27 +3,17 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { Home, Dashboard, Products, SingleProduct, Cart } from "./pages";
-import {
-  fetchAllProductFailure,
-  fetchAllProductStart,
-  fetchAllProductSuccess,
-} from "./features/Products/AllProducts/ProductsSlice";
+
 import { loadItemsFromLocalStorage } from "./features/cart/CartSlice";
+import { fetchAllProducts } from "./features/Products/AllProducts/ProductsSlice";
 
 function App() {
   const dispatch = useDispatch();
 
   const allProductsFetched = async () => {
-    dispatch(fetchAllProductStart());
-
-    const API_URL = "https://api.pujakaitem.com/api/products";
     try {
-      const response = await fetch(API_URL);
-      const data = await response.json();
-
-      dispatch(fetchAllProductSuccess(data));
+      await dispatch(fetchAllProducts());
     } catch (error) {
-      dispatch(fetchAllProductFailure(error.message));
       console.error("Error fetching products:", error);
     }
   };
