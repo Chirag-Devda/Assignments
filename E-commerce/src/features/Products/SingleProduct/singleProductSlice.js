@@ -10,23 +10,26 @@ export const singleProductSlice = createSlice({
   name: "singleProduct",
   initialState,
   reducers: {
-    fetchProductStart(state) {
+    fetchSingleProductStart(state) {
       state.loading = true;
       state.error = null;
     },
-    fetchProductSuccess(state, action) {
+    fetchSingleProductSuccess(state, action) {
       state.loading = false;
       state.product = action.payload.data;
       state.image = action.payload.image;
     },
-    fetchProductFailure(state, action) {
+    fetchSingleProductFailure(state, action) {
       state.loading = false;
       state.error = action.payload;
     },
   },
 });
 
-export const { fetchProductStart, fetchProductSuccess, fetchProductFailure } =
-  singleProductSlice.actions;
+export const {
+  fetchSingleProductFailure,
+  fetchSingleProductStart,
+  fetchSingleProductSuccess,
+} = singleProductSlice.actions;
 
 export default singleProductSlice.reducer;

@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 
 import { Footer, Navbar, Services } from "../../components";
 
-import { fetchProductSuccess } from "../../features/Products/SingleProduct/singleProductSlice";
+import { fetchSingleProductSuccess } from "../../features/Products/SingleProduct/singleProductSlice";
 import {
   addItemToCart,
   saveItemsToLocalStorage,
@@ -62,7 +62,9 @@ const SingleProduct = () => {
     const image = localStorage.getItem("singleProductImage");
 
     if (data && image) {
-      dispatch(fetchProductSuccess({ data: JSON.parse(data), image: image }));
+      dispatch(
+        fetchSingleProductSuccess({ data: JSON.parse(data), image: image })
+      );
     }
   }, []);
 

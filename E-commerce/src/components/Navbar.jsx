@@ -9,13 +9,12 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const Navbar = ({ Login, seller, cart, home, products }) => {
+  const items = useSelector((state) => state.cart.items);
+
   const [open, setOpen] = useState(false);
 
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
-
-  const items = useSelector((state) => state.cart.items);
-  console.log(items.length);
 
   return (
     <nav
