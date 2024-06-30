@@ -5,8 +5,8 @@ const Footer = () => {
     <footer className="bg-[#2874f0] mt-10">
       <div className="max-w-[1280px] mx-auto p-7 flex lg:flex-row flex-col lg:justify-evenly">
         <div className="Details flex sm:flex-row flex-col sm:justify-evenly gap-7 lg:gap-7">
-          {Links.map((Link) => (
-            <div>
+          {Links.map((Link, i) => (
+            <div key={i}>
               <h1 className="mb-2 font-bold text-white">{Link.title}</h1>
               <ul className="text-white font-medium text-[16px]">
                 {Link.text.map((t) => (
