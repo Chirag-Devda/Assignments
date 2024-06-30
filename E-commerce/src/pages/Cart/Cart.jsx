@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 import { Navbar } from "../../components";
 
@@ -16,6 +17,15 @@ const Cart = () => {
   return (
     <>
       <Navbar Login={true} cart={true} home={true} products={true} />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        limit={1}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-5">
           <div>

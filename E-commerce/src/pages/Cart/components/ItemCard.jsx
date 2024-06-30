@@ -1,17 +1,21 @@
 import { MdDelete } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { FaMinus, FaPlus } from "react-icons/fa6";
+
+import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 import {
   deleteCartItem,
   saveItemsToLocalStorage,
   updateCartItemQuantity,
 } from "../../../features/cart/CartSlice";
-import { FaMinus, FaPlus } from "react-icons/fa6";
 
 const itemCard = ({ id, name, price, thumbnail, quantity }) => {
   const dispatch = useDispatch();
   const [toatlPrice, setToatlPrice] = useState(price * quantity);
+
+  const notify = () => toast.warn("Item deleted");
 
   const handleQuantityChange = (itemId, newQuantity, price) => {
     dispatch(updateCartItemQuantity({ itemId, newQuantity }));
@@ -21,6 +25,7 @@ const itemCard = ({ id, name, price, thumbnail, quantity }) => {
 
   const handleDelteItem = (id) => {
     dispatch(deleteCartItem(id));
+    notify();
     dispatch(saveItemsToLocalStorage());
   };
 
