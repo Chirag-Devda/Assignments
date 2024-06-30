@@ -4,11 +4,13 @@ import { GiConfirmed } from "react-icons/gi";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
 
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import { Footer, Navbar, Services } from "../../components";
+import { Footer, Navbar } from "../../components";
+import Services from "./components/Services";
 
 import { fetchSingleProductSuccess } from "../../features/Products/SingleProduct/singleProductSlice";
 import {
@@ -17,19 +19,10 @@ import {
 } from "../../features/cart/CartSlice";
 
 const SingleProduct = () => {
-  const {
-    id,
-    name,
-    company,
-    price,
-    colors,
-    description,
-    category,
-    featured,
-    stock,
-    reviews,
-    stars,
-  } = useSelector((state) => state.singleProduct.product);
+  const notify = () => toast.success("Added to cart");
+
+  const { name, company, price, description, stock, reviews, stars } =
+    useSelector((state) => state.singleProduct.product);
 
   const data = useSelector((state) => state.singleProduct.product);
 
@@ -54,6 +47,7 @@ const SingleProduct = () => {
         thumbnail: thumbnail,
       })
     );
+    notify();
     dispatch(saveItemsToLocalStorage());
   };
 
@@ -71,6 +65,15 @@ const SingleProduct = () => {
   return (
     <>
       <Navbar cart={true} home={true} products={true} Login={true} />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        limit={1}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <div>
@@ -121,17 +124,15 @@ const SingleProduct = () => {
                   <FaPlus />
                 </button>
               </div>
-              <Link to="/cart">
-                <button
-                  onClick={() => {
-                    handleCart(data, quantity, ProductImage);
-                  }}
-                  className="bg-[#2874f0] text-white font-bold px-5 py-2 rounded-lg flex items-center gap-3"
-                >
-                  <FaCartPlus size={20} />
-                  Add to Cart
-                </button>
-              </Link>
+              <button
+                onClick={() => {
+                  handleCart(data, quantity, ProductImage);
+                }}
+                className="bg-[#2874f0] text-white font-bold px-5 py-2 rounded-lg flex items-center gap-3"
+              >
+                <FaCartPlus size={20} />
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>
