@@ -9,8 +9,8 @@ const Footer = () => {
             <div key={i}>
               <h1 className="mb-2 font-bold text-white">{Link.title}</h1>
               <ul className="text-white font-medium text-[16px]">
-                {Link.text.map((t) => (
-                  <li>{t}</li>
+                {Link.text.map((text, i) => (
+                  <li key={i}>{text}</li>
                 ))}
               </ul>
             </div>
