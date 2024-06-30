@@ -1,13 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Spinner } from "@material-tailwind/react";
+
 import {
   fetchSingleProductStart,
   fetchSingleProductFailure,
   fetchSingleProductSuccess,
 } from "../../../features/Products/SingleProduct/singleProductSlice";
-import { Link } from "react-router-dom";
 
 const TopProducts = () => {
   const data = useSelector((state) => state.products.products);
+  const Loading = useSelector((state) => state.products.loading);
   const dispatch = useDispatch();
 
   const singleProductFetchedAndSaved = async (id, image) => {
@@ -42,6 +45,11 @@ const TopProducts = () => {
       <div className="h-[auto] lg:h-[60vh] pb-10 mx-auto mt-5 rounded-lg border shadow-lg bg-[#fff]">
         <div className="sm:h-[30vh] h-[50vh] bg-blue-gray-100 rounded-lg"></div>
         <div className="flex justify-center sm:justify-between flex-wrap gap-5 sm:-mt-24 -mt-80 px-5">
+          {Loading && (
+            <div className="w-full justify-center flex mt-20">
+              <Spinner className="h-12 w-12" />
+            </div>
+          )}
           {data.slice(4, 7).map(({ id, image, name }) => (
             <Link to={`/products/${name}`} key={id}>
               <div
