@@ -25,4 +25,27 @@ const productsPageSliderImages = [
   { image: image5 },
 ];
 
-export { sliderImages, productsPageSliderImages };
+const Links = [
+  {
+    title: "Get to Know Us",
+    text: ["About Us", "Careers", "Press Releases"],
+  },
+  {
+    title: "Contact",
+    text: ["Facebook", "Twitter", "Instagram"],
+  },
+  {
+    title: "Make Money with Us",
+    text: [
+      "Sell on LootLo",
+      "Sell under LootLo Accelerator",
+      "Protect and Build Your Brand",
+      "LootLo Global Selling",
+      "Become an Affiliate",
+      "Fulfilment by LootLo",
+      "Advertise Your Products",
+      "LootLo Pay on Merchants",
+    ],
+  },
+];
+export { sliderImages, productsPageSliderImages, Links };
