@@ -29,7 +29,7 @@ const Cart = () => {
       <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-5">
           <div>
-            <div className="flex items-center gap-3 border-b-2 ">
+            <div className="flex items-center gap-3 border-b-2 bg-[#2f7cf8]">
               <Link to="/products">
                 <span className="text-[30px] font-bold cursor-pointer">
                   &larr;

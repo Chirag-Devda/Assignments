@@ -6,7 +6,7 @@ import { Lending } from "../../images";
 const Home = () => {
   return (
     <>
-      <Navbar Login={true} seller={true} />
+      <Navbar />
       <div className="w-screen overflow-hidden h-[calc(100vh-72px)] relative">
         <img
           src={Lending}

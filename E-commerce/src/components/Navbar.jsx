@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProducts } from "../features/Products/AllProducts/ProductsSlice";
 
-const Navbar = ({ Login, seller, cart, home, products }) => {
+const Navbar = ({ Login, cart, home, products }) => {
   const items = useSelector((state) => state.cart.items);
 
   const [open, setOpen] = useState(false);
@@ -80,11 +80,6 @@ const Navbar = ({ Login, seller, cart, home, products }) => {
               />
             </button>
           )}
-          {seller && (
-            <p className="sm:block hidden text-white text-[16px] leading-[1px] font-medium">
-              Become a Seller
-            </p>
-          )}
           {cart && (
             <Link to="/cart">
               <div className="relative">
@@ -101,13 +96,6 @@ const Navbar = ({ Login, seller, cart, home, products }) => {
               </div>
             </Link>
           )}
-          <div>
-            <PiDotsThreeOutlineVerticalFill
-              className="cursor-pointer"
-              color="white"
-              size={25}
-            />
-          </div>
         </div>
       </div>
       <Sidenav open={open} closeDrawer={closeDrawer} />
