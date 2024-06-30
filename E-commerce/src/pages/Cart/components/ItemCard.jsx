@@ -30,12 +30,12 @@ const itemCard = ({ id, name, price, thumbnail, quantity }) => {
   };
 
   return (
-    <div className="py-6 px-3 flex items-center justify-between">
+    <div className="flex items-center justify-between px-3 py-6">
       <div className="flex items-center gap-3">
-        <div className="productImage ">
+        <div className="productImage">
           <img src={thumbnail} alt="product" className="h-12 object-contain" />
         </div>
-        <div className="aboutproduct flex flex-col text-[14px] font-medium text-slate-500">
+        <div className="aboutproduct text-slate-500 flex flex-col text-[14px] font-medium">
           <p>{name}</p>
           <p>{price}</p>
         </div>
@@ -48,7 +48,7 @@ const itemCard = ({ id, name, price, thumbnail, quantity }) => {
                 handleQuantityChange(id, quantity - 1, price);
               }
             }}
-            className="text-[20px] font-bold text-red-600 cursor-pointer"
+            className="cursor-pointer text-[20px] font-bold text-red-600"
           >
             <FaMinus />
           </p>
@@ -57,7 +57,7 @@ const itemCard = ({ id, name, price, thumbnail, quantity }) => {
             onClick={() => {
               handleQuantityChange(id, quantity + 1, price);
             }}
-            className="text-[18px] text-green-700 font-bold cursor-pointer"
+            className="cursor-pointer text-[18px] font-bold text-green-700"
           >
             <FaPlus />
           </p>
@@ -70,7 +70,7 @@ const itemCard = ({ id, name, price, thumbnail, quantity }) => {
             onClick={() => {
               handleDelteItem(id);
             }}
-            className="text-red-500 cursor-pointer"
+            className="cursor-pointer text-red-500"
             size={20}
           />
         </div>

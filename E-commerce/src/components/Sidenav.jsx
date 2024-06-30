@@ -1,5 +1,5 @@
-import { Drawer, Typography, iconButton } from "@material-tailwind/react";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { Drawer, Typography } from "@material-tailwind/react";
+import {} from "react-icons/md";
 import { RiCloseLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const Sidenav = ({ open, closeDrawer }) => {
         <RiCloseLine onClick={closeDrawer} size={25} />
       </div>
 
-      <div className="text-center mt-10 space-y-4">
+      <div className="mt-10 space-y-4 text-center">
         <Link to="/dashboard">
           <h1
             onClick={() => {
@@ -23,7 +23,7 @@ const Sidenav = ({ open, closeDrawer }) => {
                 behavior: "smooth",
               });
             }}
-            className="text-black mx-10 py-1 rounded-lg text-[18px]"
+            className="mx-10 rounded-lg py-1 text-[18px] text-black"
           >
             Home
           </h1>
@@ -42,7 +42,7 @@ const Sidenav = ({ open, closeDrawer }) => {
           </h1>
         </Link>
       </div>
-      <h1 className="absolute text-white py-1 px-10 left-20 rounded-lg bottom-5 bg-blue-600 text-center text-lg font-bold">
+      <h1 className="absolute bottom-5 left-20 rounded-lg bg-blue-600 px-10 py-1 text-center text-lg font-bold text-white">
         Login
       </h1>
     </Drawer>

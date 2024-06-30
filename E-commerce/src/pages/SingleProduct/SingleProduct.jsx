@@ -51,6 +51,7 @@ const SingleProduct = () => {
     dispatch(saveItemsToLocalStorage());
   };
 
+  const [fakeMrp, setFakeMrp] = useState(0);
   useEffect(() => {
     const data = localStorage.getItem("singleProduct");
     const image = localStorage.getItem("singleProductImage");
@@ -61,6 +62,14 @@ const SingleProduct = () => {
       );
     }
   }, []);
+
+  useEffect(() => {
+    if (price) {
+      const markupPercentage = 0.1;
+      const fakePrice = price * (1 + markupPercentage);
+      setFakeMrp(fakePrice.toFixed(2));
+    }
+  }, [data]);
 
   return (
     <>
@@ -89,7 +98,7 @@ const SingleProduct = () => {
             <p>Ratings: {stars}</p>
             <p>Reviews: {reviews}</p>
             <p className="text-gray-500 text-lg">
-              MRP: <del className="">{price}</del>
+              MRP: <del className="">{fakeMrp}</del>
             </p>
             <p className="text-purple-700 font-bold">Deal of the Day:{price}</p>
             <p className="text-[12px] sm:text-[14px] text-slate-500">

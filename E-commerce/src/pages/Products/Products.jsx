@@ -38,16 +38,16 @@ const Products = () => {
         pauseOnHover
       />
       <Slider />
-      <div className="max-w-[1280px] mx-auto py-10 px-5 mt-12">
-        <h1 className="text-[30px] sm:text-[60px] font-bold -tracking-wide leading-[70px] font-mono">
+      <div className="mx-auto mt-12 max-w-[1280px] px-5 py-10">
+        <h1 className="font-mono text-[30px] font-bold leading-[70px] -tracking-wide sm:text-[60px]">
           All latest Products
         </h1>
         {Loading && (
-          <div className="w-full justify-center flex mt-10">
+          <div className="mt-10 flex w-full justify-center">
             <Spinner className="h-12 w-12" />
           </div>
         )}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-16">
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {data?.map((item, index) => (
             <Card {...item} key={index} />
           ))}

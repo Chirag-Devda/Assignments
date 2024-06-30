@@ -7,14 +7,14 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="w-screen overflow-hidden h-[calc(100vh-72px)] relative">
+      <div className="relative h-[calc(100vh-72px)] w-screen overflow-hidden">
         <img
           src={Lending}
           alt="Lending Image"
-          className="w-full h-full object-center"
+          className="h-full w-full object-center"
         />
         <Link to="/dashboard">
-          <button className="bg-[#ff0044] hover:scale-125 hover:duration-75 text-white absolute bottom-16 left-[48%] px-5 py-3 rounded-md">
+          <button className="absolute bottom-16 left-[48%] rounded-md bg-[#ff0044] px-5 py-3 text-white hover:scale-125 hover:duration-75">
             Shop Now
           </button>
         </Link>

@@ -39,9 +39,6 @@ const Card = ({ id, name, description, price, image }) => {
         <p className="text-gray-700 mb-4">{description.slice(0, 100)}...</p>
 
         <div className="flex justify-between sm:flex-row flex-col gap-3 sm:gap-0">
-          <p className="text-[#e55] hover:text-[#ff0000 font-medium">
-            &#x20b9; {price}
-          </p>
           <Link to={`/products/${name}`}>
             <button
               onClick={() => {

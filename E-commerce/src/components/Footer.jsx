@@ -2,13 +2,13 @@ import { Links } from "../constants";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#2874f0] mt-10">
-      <div className="max-w-[1280px] mx-auto p-7 flex lg:flex-row flex-col lg:justify-evenly">
-        <div className="Details flex sm:flex-row flex-col sm:justify-evenly gap-7 lg:gap-7">
+    <footer className="mt-10 bg-[#2874f0]">
+      <div className="mx-auto flex max-w-[1280px] flex-col p-7 lg:flex-row lg:justify-evenly">
+        <div className="Details flex flex-col gap-7 sm:flex-row sm:justify-evenly lg:gap-7">
           {Links.map((Link, i) => (
             <div key={i}>
               <h1 className="mb-2 font-bold text-white">{Link.title}</h1>
-              <ul className="text-white font-medium text-[16px]">
+              <ul className="text-[16px] font-medium text-white">
                 {Link.text.map((text, i) => (
                   <li key={i}>{text}</li>
                 ))}
@@ -16,11 +16,11 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div className="Newsletter sm:mt-0 mt-3">
+        <div className="Newsletter mt-3 sm:mt-0">
           <h1 className="mb-2 font-bold text-white">NEWSLETTER</h1>
           <form>
             <div className="flex flex-col gap-2">
-              <label htmlFor="email" className="text-white font-medium">
+              <label htmlFor="email" className="font-medium text-white">
                 Enter Your Email
               </label>
               <div>
@@ -29,7 +29,7 @@ const Footer = () => {
                   placeholder="username@site.com"
                   className="rounded-l-lg px-3 py-2"
                 />
-                <button className="bg-black text-[#fff] rounded-r-lg px-3 py-2 border-none">
+                <button className="rounded-r-lg border-none bg-black px-3 py-2 text-[#fff]">
                   Subscrib
                 </button>
               </div>

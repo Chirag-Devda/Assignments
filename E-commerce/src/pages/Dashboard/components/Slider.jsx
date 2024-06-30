@@ -42,23 +42,23 @@ const Slider = () => {
   return (
     <div
       style={{ backgroundImage: `url(${sliderImages[currentImage]?.image})` }}
-      className="w-screen h-[30vh] lg:h-[70vh]  relative group"
+      className="group relative h-[30vh] w-screen lg:h-[70vh]"
     >
       <div
         style={{
           backgroundImage: `url(${sliderImages[currentImage]?.image})`,
           backgroundSize: "70%",
         }}
-        className=" w-full h-full  backdrop-blur-2xl bg-cover bg-center bg-no-repeat duration-500"
+        className="h-full w-full bg-cover bg-center bg-no-repeat backdrop-blur-2xl duration-500"
       ></div>
 
       {/* Left Arrow */}
-      <div className="absolute hidden group-hover:block top-1/2 -translate-x-0 -translate-y-[50%] left-[10%] text-2xl hover:cursor-pointer">
+      <div className="absolute left-[10%] top-1/2 hidden -translate-x-0 -translate-y-[50%] text-2xl hover:cursor-pointer group-hover:block">
         <MdOutlineChevronLeft size={50} onClick={previous} />
       </div>
 
       {/* Right Arrow */}
-      <div className="absolute hidden group-hover:block top-1/2 -translate-x-0 -translate-y-[50%]  right-[10%] text-2xl cursor-pointer">
+      <div className="absolute right-[10%] top-1/2 hidden -translate-x-0 -translate-y-[50%] cursor-pointer text-2xl group-hover:block">
         <MdOutlineChevronRight
           size={50}
           onClick={() => {
@@ -68,7 +68,7 @@ const Slider = () => {
       </div>
 
       {/* goToSlide */}
-      <div className="flex justify-center py-2 gap-1">
+      <div className="flex justify-center gap-1 py-2">
         {sliderImages.map((slide, slideIndex) => (
           <VscCircleFilled
             key={slideIndex}
