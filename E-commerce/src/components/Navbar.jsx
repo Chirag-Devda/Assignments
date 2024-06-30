@@ -1,13 +1,20 @@
-import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
-import Sidenav from "./Sidenav";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProducts } from "../features/Products/AllProducts/ProductsSlice";
+import {
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Button,
+} from "@material-tailwind/react";
+
+import Sidenav from "./Sidenav";
 
 const Navbar = ({ Login, cart, home, products }) => {
   const items = useSelector((state) => state.cart.items);
@@ -48,9 +55,9 @@ const Navbar = ({ Login, cart, home, products }) => {
             LootLo
           </h1>
         </div>
-        <div className="flex items-center justify-between w-[20vw] sm:w-[55vw] lg:w-[40vw] xl:w-[30vw]">
+        <div className="flex items-center justify-between w-fit space-x-10">
           {home && (
-            <Link to="/dashboard">
+            <Link onClick={allProductsFetched} to="/dashboard">
               <h1
                 onClick={() =>
                   window.scrollTo({
@@ -72,13 +79,21 @@ const Navbar = ({ Login, cart, home, products }) => {
             </Link>
           )}
           {Login && (
-            <button className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-md bg-white text-[#2874f0] font-medium">
-              Login
-              <MdKeyboardArrowDown
-                className="font-bold sm:block hidden"
-                size={20}
-              />
-            </button>
+            <Menu>
+              <MenuHandler>
+                <Button className="hidden sm:flex items-center gap-2 px-3 py-2 rounded-md bg-white text-[#2874f0] font-medium">
+                  Login
+                  <MdKeyboardArrowDown
+                    className="font-bold sm:block hidden"
+                    size={20}
+                  />
+                </Button>
+              </MenuHandler>
+              <MenuList>
+                <MenuItem>Sign up</MenuItem>
+                <MenuItem>Login in</MenuItem>
+              </MenuList>
+            </Menu>
           )}
           {cart && (
             <Link to="/cart">
