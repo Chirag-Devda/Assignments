@@ -3,7 +3,7 @@ import { Links } from "../constants";
 const Footer = () => {
   return (
     <footer className="mt-10 bg-[#2874f0]">
-      <div className="mx-auto flex max-w-[1280px] flex-col p-7 lg:flex-row lg:justify-evenly">
+      <div className="mx-auto flex max-w-[1280px] flex-col p-3 lg:flex-row lg:justify-evenly">
         <div className="Details flex flex-col gap-7 sm:flex-row sm:justify-evenly lg:gap-7">
           {Links.map((Link, i) => (
             <div key={i}>
@@ -27,9 +27,9 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="username@site.com"
-                  className="rounded-l-lg px-3 py-2"
+                  className="w-3/5 rounded-l-lg py-[0.2rem] pl-3 sm:w-full sm:px-3 sm:py-2"
                 />
-                <button className="rounded-r-lg border-none bg-black px-3 py-2 text-[#fff]">
+                <button className="rounded-r-lg border-none bg-black px-3 py-[0.2rem] text-[#fff] sm:py-2">
                   Subscrib
                 </button>
               </div>

@@ -14,7 +14,7 @@ const Home = () => {
           className="h-full w-full object-center"
         />
         <Link to="/dashboard">
-          <button className="absolute bottom-16 left-[48%] rounded-md bg-[#ff0044] px-5 py-3 text-white hover:scale-125 hover:duration-75">
+          <button className="absolute bottom-16 left-[36%] rounded-md bg-[#ff0044] px-5 py-3 text-white hover:scale-125 hover:duration-75 sm:left-[48%]">
             Shop Now
           </button>
         </Link>

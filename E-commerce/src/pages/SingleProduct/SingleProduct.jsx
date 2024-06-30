@@ -45,7 +45,7 @@ const SingleProduct = () => {
         product: product,
         quantity: quantity,
         thumbnail: thumbnail,
-      })
+      }),
     );
     notify();
     dispatch(saveItemsToLocalStorage());
@@ -58,7 +58,7 @@ const SingleProduct = () => {
 
     if (data && image) {
       dispatch(
-        fetchSingleProductSuccess({ data: JSON.parse(data), image: image })
+        fetchSingleProductSuccess({ data: JSON.parse(data), image: image }),
       );
     }
   }, []);
@@ -84,8 +84,8 @@ const SingleProduct = () => {
         draggable
         pauseOnHover
       />
-      <div className="max-w-screen-xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div className="mx-auto max-w-screen-xl">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           <div>
             <img
               className="h-full object-contain"
@@ -93,15 +93,15 @@ const SingleProduct = () => {
               alt="Product"
             />
           </div>
-          <div className="bg-white p-6 flex flex-col gap-5">
+          <div className="flex flex-col gap-5 bg-white p-[0.7rem] sm:p-6">
             <h2 className="text-5xl font-medium">{name}</h2>
             <p>Ratings: {stars}</p>
             <p>Reviews: {reviews}</p>
-            <p className="text-gray-500 text-lg">
+            <p className="text-lg text-gray-500">
               MRP: <del className="">{fakeMrp}</del>
             </p>
-            <p className="text-purple-700 font-bold">Deal of the Day:{price}</p>
-            <p className="text-[12px] sm:text-[14px] text-slate-500">
+            <p className="font-bold text-purple-700">Deal of the Day:{price}</p>
+            <p className="text-slate-500 text-[12px] sm:text-[14px]">
               {description}
             </p>
             <div className="flex justify-between border-b-2 pb-1">
@@ -120,16 +120,16 @@ const SingleProduct = () => {
               <div className="">
                 <button
                   onClick={handleDecrement}
-                  className="bg-[#2874f0] py-2 px-2 rounded-lg"
+                  className="rounded-lg bg-[#2874f0] px-2 py-2"
                 >
                   <FaMinus />
                 </button>
-                <span className="bg-slate-200 px-5 py-1 mx-3 rounded-lg">
+                <span className="bg-slate-200 rounded-lg px-4 py-1">
                   {quantity}
                 </span>
                 <button
                   onClick={handleIncrement}
-                  className="bg-[#2874f0] py-2 px-2 rounded-lg"
+                  className="rounded-lg bg-[#2874f0] px-2 py-2"
                 >
                   <FaPlus />
                 </button>
@@ -138,7 +138,7 @@ const SingleProduct = () => {
                 onClick={() => {
                   handleCart(data, quantity, ProductImage);
                 }}
-                className="bg-[#2874f0] text-white font-bold px-5 py-2 rounded-lg flex items-center gap-3"
+                className="flex items-center gap-1 rounded-lg bg-[#2874f0] px-5 py-2 text-[12px] font-bold text-white sm:gap-3 sm:text-base"
               >
                 <FaCartPlus size={20} />
                 Add to Cart

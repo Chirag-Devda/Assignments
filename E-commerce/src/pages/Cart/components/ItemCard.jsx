@@ -30,7 +30,7 @@ const itemCard = ({ id, name, price, thumbnail, quantity }) => {
   };
 
   return (
-    <div className="flex items-center justify-between px-3 py-6">
+    <div className="flex items-center justify-between px-1 py-6 sm:px-3">
       <div className="flex items-center gap-3">
         <div className="productImage">
           <img src={thumbnail} alt="product" className="h-12 object-contain" />
@@ -40,7 +40,7 @@ const itemCard = ({ id, name, price, thumbnail, quantity }) => {
           <p>{price}</p>
         </div>
       </div>
-      <div className="details flex items-center space-x-10">
+      <div className="details flex items-center space-x-3 sm:space-x-10">
         <div className="flex items-center gap-2">
           <p
             onClick={() => {
@@ -48,32 +48,30 @@ const itemCard = ({ id, name, price, thumbnail, quantity }) => {
                 handleQuantityChange(id, quantity - 1, price);
               }
             }}
-            className="cursor-pointer text-[20px] font-bold text-red-600"
+            className="cursor-pointer text-sm font-bold text-red-600 sm:text-[20px]"
           >
             <FaMinus />
           </p>
-          <span className="text-[20px]">{quantity}</span>
+          <span className="text-sm sm:text-[20px]">{quantity}</span>
           <p
             onClick={() => {
               handleQuantityChange(id, quantity + 1, price);
             }}
-            className="cursor-pointer text-[18px] font-bold text-green-700"
+            className="cursor-pointer text-sm font-bold text-green-700 sm:text-[18px]"
           >
             <FaPlus />
           </p>
         </div>
-        <div>
-          <p>{toatlPrice}</p>
-        </div>
-        <div>
-          <MdDelete
-            onClick={() => {
-              handleDelteItem(id);
-            }}
-            className="cursor-pointer text-red-500"
-            size={20}
-          />
-        </div>
+
+        <p className="text-sm sm:text-base">{toatlPrice}</p>
+
+        <MdDelete
+          onClick={() => {
+            handleDelteItem(id);
+          }}
+          className="cursor-pointer text-red-500"
+          size={20}
+        />
       </div>
     </div>
   );
