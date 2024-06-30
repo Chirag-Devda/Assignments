@@ -66,6 +66,7 @@ const SingleProduct = () => {
     <>
       <Navbar cart={true} home={true} products={true} Login={true} />
       <ToastContainer
+        className="mt-16"
         position="top-right"
         autoClose={3000}
         limit={1}
