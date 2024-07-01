@@ -55,7 +55,7 @@ To set up and run the LootLo project locally, follow these steps:
     ```bash
     npm install
     ```
-6.  **\*Start the development server:**
+6.  **Start the development server:**
 
     ```bash
     npm run dev
