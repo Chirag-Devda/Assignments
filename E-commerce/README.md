@@ -35,7 +35,7 @@ To set up and run the LootLo project locally, follow these steps:
     git clone --single-branch --branch main --sparse https://github.com/Chirag-Devda/Assignments cd Assignments
     ```
 
-2.  **\*Sparse Checkout for `E-commerce` Folder**
+2.  **Sparse Checkout for `E-commerce` Folder**
 
     ```bash
     git sparse-checkout set E-commerce
