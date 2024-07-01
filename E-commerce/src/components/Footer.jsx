@@ -23,7 +23,7 @@ const Footer = () => {
               <label htmlFor="email" className="font-medium text-white">
                 Enter Your Email
               </label>
-              <div>
+              <div className="flex">
                 <input
                   type="email"
                   placeholder="username@site.com"
