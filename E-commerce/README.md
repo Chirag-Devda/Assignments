@@ -31,8 +31,12 @@ To set up and run the LootLo project locally, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/lootlo.git
+  git clone --single-branch --branch main --sparse https://github.com/Chirag-Devda/Assignments 
+  cd Assignments
    ```
+  ```bash
+  git sparse-checkout set E-commerce
+```
 2. **Navigate to the project directory**
    ```bash
    cd E-commerce
