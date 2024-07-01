@@ -36,7 +36,7 @@ To set up and run the LootLo project locally, follow these steps:
    ```
   ```bash
   git sparse-checkout set E-commerce
-```
+  ```
 2. **Navigate to the project directory**
    ```bash
    cd E-commerce
