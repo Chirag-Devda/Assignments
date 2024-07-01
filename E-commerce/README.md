@@ -32,24 +32,30 @@ To set up and run the LootLo project locally, follow these steps:
 1.  **Clone the repository:**
 
     ```bash
-    git clone --single-branch --branch main --sparse https://github.com/Chirag-Devda/Assignments cd Assignments
+    git clone --single-branch --branch main --sparse https://github.com/Chirag-Devda/Assignments
     ```
 
-2.  **\*Sparse Checkout for `E-commerce` Folder**
+2.  **Navigate to project repo**
+
+    ```bash
+    cd Assignments
+    ```
+
+3.  **Sparse Checkout for `E-commerce` Folder**
 
     ```bash
     git sparse-checkout set E-commerce
     ```
 
-3.  **Navigate to the project directory**
+4.  **Navigate to the project directory**
     ```bash
     cd E-commerce
     ```
-4.  **Install the dependencies:**
+5.  **Install the dependencies:**
     ```bash
     npm install
     ```
-5.  **\*Start the development server:**
+6.  **\*Start the development server:**
     ```bash
     npm run dev
     ```
