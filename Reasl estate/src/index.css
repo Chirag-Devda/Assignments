@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@import 'tailwindcss/tailwind.css';
+
+body {
+  @apply font-inter;
+}

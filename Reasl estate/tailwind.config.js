@@ -2,7 +2,15 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        cream: "#FCF8F4",
+        darkCream: "#F6EFE6",
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
