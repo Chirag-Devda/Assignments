@@ -2,9 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
 
-@import 'tailwindcss/tailwind.css';
+input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #122b49; /* Change this to your desired color */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-body {
-  @apply font-inter;
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Customize the scrollbar thumb (scroll color) */
+::-webkit-scrollbar-thumb {
+  background: #cdcdcd;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* Customize the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #d7c0c0;
 }

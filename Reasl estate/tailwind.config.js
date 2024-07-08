@@ -6,6 +6,7 @@ export default {
       colors: {
         cream: "#FCF8F4",
         darkCream: "#F6EFE6",
+        darkBlue:"#122B49",
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
