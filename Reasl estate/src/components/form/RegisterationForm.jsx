@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
 const RegisterationForm = () => {

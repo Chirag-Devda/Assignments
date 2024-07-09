@@ -33,4 +33,45 @@ const ulpoadSteps = [
   },
 ];
 
-export { navLinks, ulpoadSteps };
+const ListPropertyTabs = [
+  {
+    label: "PROPERTY DETAILS",
+    value: "property",
+    progressWidth: 20,
+  },
+  {
+    label: "LOCATION DETAILS",
+    value: "location",
+    progressWidth: 40,
+  },
+  {
+    label: "FEATURES & AMENITIES",
+    value: "fetures",
+    progressWidth: 60,
+  },
+  {
+    label: "PRICE DETAILS",
+    value: "price",
+    progressWidth: 80,
+  },
+  {
+    label: "PROPERTY IMAGES",
+    value: "images",
+    progressWidth: 100,
+  },
+];
+
+const PropertyTypeFor = {
+  CommercialProperty: [
+    "Office Space",
+    "Co working",
+    "Restaurant /Cafe",
+    "Shop/Showroom",
+    "Industrial Bldg.",
+    "Industrial Shed",
+    "Warehouse/Godown",
+  ],
+  Residential: ["Flat / Apartment", "House / Villa"],
+};
+
+export { navLinks, ulpoadSteps, ListPropertyTabs, PropertyTypeFor };
