@@ -1,7 +1,7 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Home, ListProperty } from "./pages";
+import { Home, ListProperty, Verification } from "./pages";
 
 function App() {
   const router = createBrowserRouter([
@@ -12,6 +12,10 @@ function App() {
     {
       path: "/listproperty",
       element: <ListProperty />,
+    },
+    {
+      path: "/verification",
+      element: <Verification />,
     },
   ]);
 

@@ -1,7 +1,11 @@
 import { useForm } from "react-hook-form";
 import { FaChevronDown } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+import { RegisterFormLayout } from "../../components";
 
 const RegisterationForm = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -9,15 +13,13 @@ const RegisterationForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    navigate("/verification");
     console.log(data);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="h-full w-1/2 bg-black">
-      <h1 className="flex h-[68px] items-center rounded-t-lg bg-cream py-2 pl-[68px] text-2xl font-medium text-black">
-        LETS GET YOU STARTED!
-      </h1>
-      <div className="flex h-[calc(376px-131px)] flex-col gap-[50px] overflow-scroll overflow-x-hidden bg-white p-16 text-black">
+    <form onSubmit={handleSubmit(onSubmit)} className="h-full w-1/2">
+      <RegisterFormLayout>
         {/* Radio for Owner or Builder */}
         <div className="relative flex flex-col gap-2">
           <p>
@@ -115,7 +117,7 @@ const RegisterationForm = () => {
               </div>
               <input
                 className="w-full rounded-md border-2 border-black px-3 py-3"
-                type="number"
+                type="tel"
                 placeholder="000-000-0000"
                 id="phone"
                 {...register("Phone", {
@@ -123,9 +125,13 @@ const RegisterationForm = () => {
                     value: true,
                     message: "Enter this feild",
                   },
+                  pattern: {
+                    value: /^[0-9]{10}$/, // Only allow exactly 10 digits
+                    message: "Invalid phone number format",
+                  },
                   maxLength: {
                     value: 10,
-                    message: "Max length is 10",
+                    message: "maximum lenght is 10",
                   },
                 })}
               />
@@ -150,17 +156,7 @@ const RegisterationForm = () => {
             />
           </div>
         </div>
-      </div>
-      <div className="flex h-16 items-center justify-between rounded-b-lg bg-cream px-8 py-3">
-        <p className="text-[#7A7A7A]">
-          Need Help? <b>call 9999999999</b>
-        </p>
-        <input
-          type="submit"
-          value="Next"
-          className="cursor-pointer rounded-lg bg-darkBlue px-9 py-1 text-[20px] font-light text-white"
-        />
-      </div>
+      </RegisterFormLayout>
     </form>
   );
 };
