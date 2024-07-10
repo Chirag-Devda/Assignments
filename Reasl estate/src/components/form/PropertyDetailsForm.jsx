@@ -20,13 +20,20 @@ import { handleChangeData } from "../../features/PropertyDetails/PropertyDetailS
 
 const PropertyDetailsForm = () => {
   const formData = useSelector((state) => state.productDetails.formData);
-
   const dispatch = useDispatch();
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+
+    // Check if all fields in formData are not empty
+    const isFormValid = Object.values(formData).every((value) => value !== "");
+
+    if (isFormValid) {
+      console.log("form submitted with all details", formData);
+    } else {
+      alert("please enter the all * sections");
+    }
   };
 
   return (

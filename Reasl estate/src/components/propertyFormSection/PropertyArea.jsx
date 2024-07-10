@@ -21,6 +21,7 @@ const PropertyArea = ({ id, label, name }) => {
         type="number"
         placeholder="0"
         className="w-full rounded-md border-2 border-[#7A7A7A] px-3 py-3 pr-16 text-black"
+        required
       />
       <span className="absolute right-3 top-11 text-[#7A7A7A]">sq.Ft.</span>
     </div>

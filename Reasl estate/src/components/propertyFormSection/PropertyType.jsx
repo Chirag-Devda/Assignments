@@ -27,6 +27,7 @@ const PropertyType = ({ name }) => {
           }}
           checked={formData.propertType === name}
           className="mr-2 h-5 w-5 cursor-pointer"
+          required
         />
         <span>{name}</span>
       </div>

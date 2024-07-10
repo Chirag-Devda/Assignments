@@ -24,6 +24,7 @@ const FloorAndFacing = () => {
             id="propertyOnFloor"
             type="number"
             className="w-full rounded-md border-2 border-[#7A7A7A] px-3 py-3 pr-16 text-black"
+            required
           />
         </div>
         <div>
@@ -43,6 +44,7 @@ const FloorAndFacing = () => {
             id="totalFloor"
             type="number"
             className="w-full rounded-md border-2 border-[#7A7A7A] px-3 py-3 pr-16 text-black"
+            required
           />
         </div>
       </div>
@@ -60,7 +62,12 @@ const FloorAndFacing = () => {
           }}
           className="rounded-md border-2 border-[#7A7A7A] p-4"
           id="propertyFacing"
+          required
+          defaultValue=""
         >
+          <option value="" disabled hidden>
+            Choose an option
+          </option>
           <option className="text-lg" value="North">
             North
           </option>

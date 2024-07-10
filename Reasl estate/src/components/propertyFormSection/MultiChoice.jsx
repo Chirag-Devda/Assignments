@@ -3,11 +3,12 @@ import { updateFormData } from "../../features/PropertyDetails/PropertyDetailSli
 import { useDispatch } from "react-redux";
 
 const MultiChoice = ({ id, label, array, formDataKey }) => {
-  const [selectedbg, setSelectedbg] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
   const dispatch = useDispatch();
 
   const handleSelection = (index, value) => {
-    setSelectedbg(index);
+    setSelectedItem(index);
+
     dispatch(updateFormData({ fieldName: formDataKey, value: value }));
   };
 
@@ -25,11 +26,10 @@ const MultiChoice = ({ id, label, array, formDataKey }) => {
               name={item}
               onClick={(e) => {
                 handleSelection(index, e.target.innerHTML);
-                console.log(e.target.innerHTML);
               }}
               style={{
-                backgroundColor: selectedbg === index ? "#122b49" : "white",
-                color: selectedbg === index ? "white" : "black",
+                backgroundColor: selectedItem === index ? "#122b49" : "white",
+                color: selectedItem === index ? "white" : "black",
               }}
               className="cursor-pointer rounded-full border border-[#D6D6D6] px-5 py-[5px] duration-500 hover:border-black"
             >

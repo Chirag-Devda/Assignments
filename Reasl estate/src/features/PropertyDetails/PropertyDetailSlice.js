@@ -46,6 +46,9 @@ export const PropertyDetailSlice = createSlice({
       const { fieldName, value } = action.payload;
       state.formData[fieldName] = value;
     },
+    setSelectedItem: (state, action) => {
+      state.selectedItem = action.payload;
+    },
   },
 });
 
@@ -56,6 +59,7 @@ export const {
   removePropertyDetails,
   resetProperyDetail,
   updateFormData,
+  setSelectedItem,
 } = PropertyDetailSlice.actions;
 
 export default PropertyDetailSlice.reducer;
