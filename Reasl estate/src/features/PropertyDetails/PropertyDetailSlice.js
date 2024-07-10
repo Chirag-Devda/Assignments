@@ -5,6 +5,17 @@ const initialState = {
     propertyFor: "",
     propertType: "",
     propertyDetails: [],
+    properyBuiltArea: "",
+    propertyCarpetArea: "",
+    propertyOnFloor: "",
+    totalFloor: "",
+    propertyFacing: "",
+    propertyAge: "",
+    propertyBhk: "",
+    bathroomsToilets: "",
+    tenantPreference: "",
+    availability: "",
+    description: "",
   },
 };
 
@@ -31,6 +42,10 @@ export const PropertyDetailSlice = createSlice({
       const { name, value } = action.payload;
       state.formData = { ...state.formData, [name]: value };
     },
+    updateFormData: (state, action) => {
+      const { fieldName, value } = action.payload;
+      state.formData[fieldName] = value;
+    },
   },
 });
 
@@ -40,6 +55,7 @@ export const {
   pushPropertyDetail,
   removePropertyDetails,
   resetProperyDetail,
+  updateFormData,
 } = PropertyDetailSlice.actions;
 
 export default PropertyDetailSlice.reducer;

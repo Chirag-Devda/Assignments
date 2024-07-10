@@ -1,31 +1,27 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { PropertyTypeFor } from "../../constants";
-import PropertyDetailSlice, {
-  pushPropertyDetail,
-  removePropertyDetails,
-} from "../../features/PropertyDetails/PropertyDetailSlice";
-import PropertyFor from "../propertyFormSection/PropertyFor";
-import PropertyType from "../propertyFormSection/PropertyType";
-import PropertyTypeSelection from "../propertyFormSection/PropertyTypeSelection";
+import {
+  PropertyTypeFor,
+  PropertyAge,
+  PropertyBhk,
+  bathroomsToilets,
+  tenantPreference,
+  availability,
+} from "../../constants";
+import {
+  FloorAndFacing,
+  MultiChoice,
+  PropertyArea,
+  PropertyFor,
+  PropertyType,
+  PropertyTypeSelection,
+} from "../../components";
+import { handleChangeData } from "../../features/PropertyDetails/PropertyDetailSlice";
 
 const PropertyDetailsForm = () => {
   const formData = useSelector((state) => state.productDetails.formData);
 
   const dispatch = useDispatch();
-
-  const handlePropertyDetails = (e, propertyfor) => {
-    const value = e.target.innerHTML;
-    if (e.currentTarget.style.backgroundColor === "white") {
-      e.currentTarget.style.backgroundColor = "#122B49";
-      e.currentTarget.style.color = "#ffffff";
-      dispatch(pushPropertyDetail(value));
-    } else {
-      e.currentTarget.style.backgroundColor = "white";
-      e.currentTarget.style.color = "#000";
-      dispatch(removePropertyDetails({ detail: propertyfor }));
-    }
-  };
 
   // Handle form submission
   const handleSubmit = (e) => {
@@ -35,7 +31,7 @@ const PropertyDetailsForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="h-full w-full bg-white">
-      <div className="flex h-[368px] flex-col gap-14 overflow-scroll p-10 text-black shadow-xl">
+      <div className="flex h-[368px] w-[976px] flex-col gap-14 overflow-scroll p-10 text-black shadow-xl">
         {/* PropertyFor Radio */}
         <div>
           <PropertyFor />
@@ -58,6 +54,81 @@ const PropertyDetailsForm = () => {
             array={PropertyTypeFor.Residential}
             condition="Residential"
           />
+        </div>
+        {/* Property Area */}
+        <div>
+          {" "}
+          <div className="flex gap-[60px]">
+            <PropertyArea
+              id="builtArea"
+              label="Built up Area"
+              name="properyBuiltArea"
+            />
+            <PropertyArea
+              id="carpetArea"
+              label="Carpet Area"
+              name="propertyCarpetArea"
+            />
+          </div>
+        </div>
+        {/* Property Floor And Facing */}
+        <div className="flex gap-[60px]">
+          <FloorAndFacing />
+        </div>
+        {/* Property Age */}
+        <MultiChoice
+          formDataKey="propertyAge"
+          id="propertyAge"
+          label="Property Age"
+          array={PropertyAge}
+        />
+        {/* Property BHK type */}
+        <MultiChoice
+          formDataKey="propertyBhk"
+          id="propertyBhk"
+          label="BHK Type"
+          array={PropertyBhk}
+        />
+        {/* Property Bathrooms and Toilets */}
+        <MultiChoice
+          formDataKey="bathroomsToilets"
+          id="bathroomsToilets"
+          label="Bathrooms / Toilets"
+          array={bathroomsToilets}
+        />
+        {/* Property Tenant Preference */}
+        <MultiChoice
+          formDataKey="tenantPreference"
+          id="tenantPreference"
+          label="Tenant Preference"
+          array={tenantPreference}
+        />
+        {/* Property Availability */}
+        <MultiChoice
+          formDataKey="availability"
+          id="availability"
+          label="Availability"
+          array={availability}
+        />
+        <div className="flex flex-col">
+          <label htmlFor="description">
+            Property description <span className="text-red-600">*</span>
+          </label>
+          <textarea
+            onChange={(e) => {
+              dispatch(
+                handleChangeData({
+                  name: e.target.name,
+                  value: e.target.value,
+                }),
+              );
+            }}
+            rows={5}
+            placeholder="Add a description for your property to attract the best tenant"
+            className="border-2 p-2"
+            name="description"
+            id="description"
+          ></textarea>
         </div>
       </div>
       <div className="flex h-16 items-center justify-between rounded-b-lg bg-darkBlue px-8 py-3">

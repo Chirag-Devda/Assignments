@@ -74,4 +74,34 @@ const PropertyTypeFor = {
   Residential: ["Flat / Apartment", "House / Villa"],
 };
 
-export { navLinks, ulpoadSteps, ListPropertyTabs, PropertyTypeFor };
+const PropertyAge = [
+  "Less than 1 Year",
+  "1- 3 Years",
+  "3- 5 Years",
+  "5 - 10 Years",
+  "Greater than 10 Years",
+];
+
+const PropertyBhk = ["1 BHK", "2 BHK", "3 BHK", "4 BHK", "5+ BHK"];
+
+const bathroomsToilets = [1, 2, 3, 4, 5, "6+"];
+
+const tenantPreference = ["Any", "Family", "Bachelor(Men)", "Bachelor(Women)"];
+
+const availability = [
+  "Immediate",
+  "within 15 Days",
+  "within 1 month",
+  "within 2 month",
+];
+export {
+  navLinks,
+  ulpoadSteps,
+  ListPropertyTabs,
+  PropertyTypeFor,
+  PropertyAge,
+  PropertyBhk,
+  bathroomsToilets,
+  tenantPreference,
+  availability,
+};

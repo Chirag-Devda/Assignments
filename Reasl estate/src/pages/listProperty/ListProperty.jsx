@@ -17,7 +17,7 @@ const ListProperty = () => {
       <Navbar />
       <main className="h-[calc(100vh-72px)]">
         <div className="container mx-auto flex h-full items-center justify-center">
-          <div className="h-[552px]">
+          <div className="h-[552px] w-[976px]">
             <Tabs value="html">
               <TabsHeader className="bg-darkCream">
                 {ListPropertyTabs.map(({ label, value, progressWidth }) => (

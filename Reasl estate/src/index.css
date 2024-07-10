@@ -27,6 +27,8 @@ input[type="radio"]:checked::before {
   transform: translate(-50%, -50%);
 }
 
+/* Removed Default Scroll bar */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -45,4 +47,16 @@ input[type="radio"]:checked::before {
 /* Customize the scrollbar thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #d7c0c0;
+}
+
+/* Remove Number Input slider  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }

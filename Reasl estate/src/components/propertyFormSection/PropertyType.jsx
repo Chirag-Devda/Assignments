@@ -9,7 +9,7 @@ const PropertyType = ({ name }) => {
   const dispatch = useDispatch();
   return (
     <>
-      <div className="flex w-1/2 items-center">
+      <div className="flex w-1/4 items-center">
         <input
           type="radio"
           name="propertType"

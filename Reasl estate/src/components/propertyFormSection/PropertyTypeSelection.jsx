@@ -23,18 +23,18 @@ const PropertyTypeSelection = ({ condition, array }) => {
   return (
     <>
       {formData.propertType === condition && (
-        <div className="absolute mt-10 flex w-3/4 flex-wrap gap-4 text-black">
+        <div className="mt-10 flex w-3/4 flex-wrap gap-4 text-black">
           {array.map((propertyfor, index) => (
-            <div
+            <button
               key={index}
               onClick={(e) => {
                 handlePropertyDetails(e, propertyfor);
               }}
               style={{ backgroundColor: "white" }}
-              className="cursor-pointer rounded-full border border-[#D6D6D6] px-[10px] py-[5px] duration-500 hover:border-black"
+              className="cursor-pointer rounded-full border border-[#D6D6D6] px-[10px] py-[5px] duration-500 hover:border-black focus:bg-red-900"
             >
               {propertyfor}
-            </div>
+            </button>
           ))}
         </div>
       )}
