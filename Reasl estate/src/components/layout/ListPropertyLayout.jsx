@@ -3,6 +3,7 @@ import Navbar from "../navbar/Navbar";
 
 const ListPropertyLayout = ({ children }) => {
   const location = useLocation();
+  console.log(location.pathname);
 
   return (
     <>
@@ -15,7 +16,9 @@ const ListPropertyLayout = ({ children }) => {
                 <li
                   style={{
                     backgroundColor:
-                      location.pathname === "/listproperty" && "#EDF2F8",
+                      location.pathname === "/listproperty"
+                        ? "#EDF2F8"
+                        : "#FCF8F4",
                   }}
                   className="flex w-1/2 items-center justify-center"
                 >
@@ -24,7 +27,9 @@ const ListPropertyLayout = ({ children }) => {
                 <li
                   style={{
                     backgroundColor:
-                      location.pathname === "/listlocation" && "#EDF2F8",
+                      location.pathname === "/listlocation"
+                        ? "#EDF2F8"
+                        : "#FCF8F4",
                   }}
                   className="flex w-1/2 items-center justify-center"
                 >
@@ -33,7 +38,9 @@ const ListPropertyLayout = ({ children }) => {
                 <li
                   style={{
                     backgroundColor:
-                      location.pathname === "/listfeatures" && "#EDF2F8",
+                      location.pathname === "/listfeatures"
+                        ? "#EDF2F8"
+                        : "#FCF8F4",
                   }}
                   className="flex w-1/2 items-center justify-center"
                 >
@@ -42,7 +49,9 @@ const ListPropertyLayout = ({ children }) => {
                 <li
                   style={{
                     backgroundColor:
-                      location.pathname === "/listprice" && "#EDF2F8",
+                      location.pathname === "/listprice"
+                        ? "#EDF2F8"
+                        : "#FCF8F4",
                   }}
                   className="flex w-1/2 items-center justify-center"
                 >
@@ -51,7 +60,9 @@ const ListPropertyLayout = ({ children }) => {
                 <li
                   style={{
                     backgroundColor:
-                      location.pathname === "/listimages" && "#EDF2F8",
+                      location.pathname === "/listimages"
+                        ? "#EDF2F8"
+                        : "#FCF8F4",
                   }}
                   className="flex w-1/2 items-center justify-center"
                 >
@@ -63,10 +74,7 @@ const ListPropertyLayout = ({ children }) => {
               <div
                 style={{
                   backgroundColor:
-                    location.pathname === "/listlocation" ||
-                    "/listfeatures" ||
-                    "/listprice" ||
-                    "/listimages"
+                    location.pathname !== "/listproperty"
                       ? "#122B49"
                       : "#D6D6D6",
                 }}
@@ -75,9 +83,8 @@ const ListPropertyLayout = ({ children }) => {
               <div
                 style={{
                   backgroundColor:
-                    location.pathname === "/listfeatures" ||
-                    "/listprice" ||
-                    "/listimages"
+                    location.pathname !== "/listlocation" &&
+                    location.pathname !== "/listproperty"
                       ? "#122B49"
                       : "#D6D6D6",
                 }}
@@ -86,7 +93,9 @@ const ListPropertyLayout = ({ children }) => {
               <div
                 style={{
                   backgroundColor:
-                    location.pathname === "/listprice" || "/listimages"
+                    location.pathname !== "/listlocation" &&
+                    location.pathname !== "/listproperty" &&
+                    location.pathname !== "/listfeatures"
                       ? "#122B49"
                       : "#D6D6D6",
                 }}

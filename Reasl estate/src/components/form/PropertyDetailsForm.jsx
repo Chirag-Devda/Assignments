@@ -18,9 +18,11 @@ import {
   PropertyTypeSelection,
 } from "../../components";
 import { handleChangeData } from "../../features/PropertyDetails/PropertyDetailSlice";
+import { useNavigate } from "react-router-dom";
 
 const PropertyDetailsForm = () => {
   const formData = useSelector((state) => state.propertyDetails.formData);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // Handle form submission
@@ -31,6 +33,7 @@ const PropertyDetailsForm = () => {
     const isFormValid = Object.values(formData).every((value) => value !== "");
 
     if (isFormValid) {
+      navigate("/listlocation");
       console.log("form submitted with all details", formData);
     } else {
       alert("please enter all the * required fields");
