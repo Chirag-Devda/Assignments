@@ -36,27 +36,22 @@ const ulpoadSteps = [
 const ListPropertyTabs = [
   {
     label: "PROPERTY DETAILS",
-    value: "property",
     progressWidth: 20,
   },
   {
     label: "LOCATION DETAILS",
-    value: "location",
     progressWidth: 40,
   },
   {
     label: "FEATURES & AMENITIES",
-    value: "fetures",
     progressWidth: 60,
   },
   {
     label: "PRICE DETAILS",
-    value: "price",
     progressWidth: 80,
   },
   {
     label: "PROPERTY IMAGES",
-    value: "images",
     progressWidth: 100,
   },
 ];

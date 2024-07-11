@@ -2,6 +2,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Home, ListProperty, Verification } from "./pages";
+import ListPropertyLayout from "./components/layout/ListPropertyLayout";
 
 function App() {
   const router = createBrowserRouter([
