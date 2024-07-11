@@ -21,16 +21,40 @@ const ListPropertyLayout = ({ children }) => {
                 >
                   PROPERTY DETAILS
                 </li>
-                <li className="flex w-1/2 items-center justify-center">
+                <li
+                  style={{
+                    backgroundColor:
+                      location.pathname === "/listlocation" && "#EDF2F8",
+                  }}
+                  className="flex w-1/2 items-center justify-center"
+                >
                   LOCATION DETAILS
                 </li>
-                <li className="flex w-1/2 items-center justify-center">
+                <li
+                  style={{
+                    backgroundColor:
+                      location.pathname === "/listfeatures" && "#EDF2F8",
+                  }}
+                  className="flex w-1/2 items-center justify-center"
+                >
                   FEATURES & AMENITIES
                 </li>
-                <li className="flex w-1/2 items-center justify-center">
+                <li
+                  style={{
+                    backgroundColor:
+                      location.pathname === "/listprice" && "#EDF2F8",
+                  }}
+                  className="flex w-1/2 items-center justify-center"
+                >
                   PRICE DETAILS
                 </li>
-                <li className="flex w-1/2 items-center justify-center">
+                <li
+                  style={{
+                    backgroundColor:
+                      location.pathname === "/listimages" && "#EDF2F8",
+                  }}
+                  className="flex w-1/2 items-center justify-center"
+                >
                   PROPERTY IMAGES
                 </li>
               </ul>
@@ -39,16 +63,43 @@ const ListPropertyLayout = ({ children }) => {
               <div
                 style={{
                   backgroundColor:
-                    location.pathname === "/listproperty"
+                    location.pathname === "/listlocation" ||
+                    "/listfeatures" ||
+                    "/listprice" ||
+                    "/listimages"
                       ? "#122B49"
                       : "#D6D6D6",
                 }}
-                className="h-2 w-[20%] bg-gray-700 duration-500"
+                className="h-2 w-[20%] bg-gray-700"
               ></div>
-              <div className="h-2 w-[20%] bg-[#D6D6D6] duration-500"></div>
-              <div className="h-2 w-[20%] bg-[#D6D6D6] duration-500"></div>
-              <div className="h-2 w-[20%] bg-[#D6D6D6] duration-500"></div>
-              <div className="h-2 w-[20%] bg-[#D6D6D6] duration-500"></div>
+              <div
+                style={{
+                  backgroundColor:
+                    location.pathname === "/listfeatures" ||
+                    "/listprice" ||
+                    "/listimages"
+                      ? "#122B49"
+                      : "#D6D6D6",
+                }}
+                className="h-2 w-[20%] bg-[#D6D6D6]"
+              ></div>
+              <div
+                style={{
+                  backgroundColor:
+                    location.pathname === "/listprice" || "/listimages"
+                      ? "#122B49"
+                      : "#D6D6D6",
+                }}
+                className="h-2 w-[20%] bg-[#D6D6D6]"
+              ></div>
+              <div
+                style={{
+                  backgroundColor:
+                    location.pathname === "/listimages" ? "#122B49" : "#D6D6D6",
+                }}
+                className="h-2 w-[20%] bg-[#D6D6D6]"
+              ></div>
+              <div className="h-2 w-[20%] bg-[#D6D6D6]"></div>
             </div>
             {children}
           </div>

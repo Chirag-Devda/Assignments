@@ -17,6 +17,7 @@ import MultiChoice from "./propertyFormSection/MultiChoice";
 // layout
 import RegisterFormLayout from "./layout/RegisterFormLayout";
 import HomeLayout from "./layout/HomeLayout";
+import ListPropertyLayout from "./layout/ListPropertyLayout";
 
 // utils
 import FormSubmitBtn from "./utils/FormSubmitBtn";
@@ -35,4 +36,5 @@ export {
   HomeLayout,
   VerificationForm,
   FormSubmitBtn,
+  ListPropertyLayout,
 };
