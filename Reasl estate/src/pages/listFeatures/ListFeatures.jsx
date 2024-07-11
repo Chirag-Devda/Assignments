@@ -1,7 +1,11 @@
-import { ListPropertyLayout } from "../../components";
+import { ListPropertyLayout, PropertyFeatures } from "../../components";
 
 const ListFeatures = () => {
-  return <ListPropertyLayout>ListFeatures</ListPropertyLayout>;
+  return (
+    <ListPropertyLayout>
+      <PropertyFeatures />
+    </ListPropertyLayout>
+  );
 };
 
 export default ListFeatures;

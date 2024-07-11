@@ -8,6 +8,7 @@ export default withMT({
         cream: "#FCF8F4",
         darkCream: "#F6EFE6",
         darkBlue: "#122B49",
+        gray: "#D6D6D6",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],

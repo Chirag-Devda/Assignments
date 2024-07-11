@@ -1,0 +1,51 @@
+import FormSubmitBtn from "../utils/FormSubmitBtn";
+import GeneralFeatures from "../featuresFormSection/GeneralFeatures";
+import OtherFeatures from "../featuresFormSection/OtherFeatures";
+import SocietyAmenities from "../featuresFormSection/SocietyAmenities";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+const PropertyFeatures = () => {
+  const features = useSelector((state) => state.featuresDetails.features);
+  const navigate = useNavigate();
+
+  const validateFeatures = (features) => {
+    return Object.values(features).every((value) => {
+      if (Array.isArray(value)) {
+        return value.length > 0;
+      } else {
+        return value !== "";
+      }
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const isValid = validateFeatures(features);
+
+    if (isValid) {
+      navigate("/listprice");
+      console.log("form submitted with all details", features);
+    } else {
+      alert("Please fill in all required fields");
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="h-full w-full bg-white">
+      <div className="flex h-[368px] w-[976px] flex-col gap-14 overflow-scroll p-10 text-black shadow-xl">
+        <GeneralFeatures />
+        <hr className="text-gray" />
+        <OtherFeatures />
+        <hr className="text-gray" />
+        <h1 className="text-lg font-semibold">SOCIETY AMENITIES</h1>
+        <SocietyAmenities />
+        <hr className="text-gray" />
+      </div>
+      <FormSubmitBtn />
+    </form>
+  );
+};
+
+export default PropertyFeatures;

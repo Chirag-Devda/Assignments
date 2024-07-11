@@ -5,14 +5,18 @@ import Navbar from "./navbar/Navbar";
 import RegisterationForm from "./form/RegisterationForm";
 import PropertyDetailsForm from "./form/PropertyDetailsForm";
 import VerificationForm from "./form/VerificationForm";
+import PropertyFeatures from "./form/PropertyFeatures";
 
-// proprtyFromSection
+// proprtyFormSection
 import PropertyArea from "./propertyFormSection/PropertyArea";
 import PropertyFor from "./propertyFormSection/PropertyFor";
 import PropertyType from "./propertyFormSection/PropertyType";
 import PropertyTypeSelection from "./propertyFormSection/PropertyTypeSelection";
 import FloorAndFacing from "./propertyFormSection/FloorAndFacing";
 import MultiChoice from "./propertyFormSection/MultiChoice";
+
+// featuresFormSection
+import Radio from "./featuresFormSection/Radio.jsx";
 
 // layout
 import RegisterFormLayout from "./layout/RegisterFormLayout";
@@ -37,4 +41,6 @@ export {
   VerificationForm,
   FormSubmitBtn,
   ListPropertyLayout,
+  PropertyFeatures,
+  Radio,
 };
