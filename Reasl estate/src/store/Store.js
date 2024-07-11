@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import PropertyDetailsReducer from "../features/PropertyDetails/PropertyDetailSlice.js";
+import RegisterDetailReducer from "../features/RegisterDetails/RegisterDetailSlice.js";
 
 export const store = configureStore({
   reducer: {
-    productDetails: PropertyDetailsReducer,
+    registerDetails: RegisterDetailReducer,
+    propertyDetails: PropertyDetailsReducer,
   },
 });

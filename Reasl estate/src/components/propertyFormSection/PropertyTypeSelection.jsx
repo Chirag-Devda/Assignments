@@ -5,7 +5,7 @@ import {
 } from "../../features/PropertyDetails/PropertyDetailSlice";
 
 const PropertyTypeSelection = ({ condition, array }) => {
-  const formData = useSelector((state) => state.productDetails.formData);
+  const formData = useSelector((state) => state.propertyDetails.formData);
   const dispatch = useDispatch();
 
   const handlePropertyDetails = (e, propertyfor) => {

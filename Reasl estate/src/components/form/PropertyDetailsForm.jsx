@@ -10,6 +10,7 @@ import {
 } from "../../constants";
 import {
   FloorAndFacing,
+  FormSubmitBtn,
   MultiChoice,
   PropertyArea,
   PropertyFor,
@@ -19,7 +20,7 @@ import {
 import { handleChangeData } from "../../features/PropertyDetails/PropertyDetailSlice";
 
 const PropertyDetailsForm = () => {
-  const formData = useSelector((state) => state.productDetails.formData);
+  const formData = useSelector((state) => state.propertyDetails.formData);
   const dispatch = useDispatch();
 
   // Handle form submission
@@ -32,7 +33,7 @@ const PropertyDetailsForm = () => {
     if (isFormValid) {
       console.log("form submitted with all details", formData);
     } else {
-      alert("please enter the all * sections");
+      alert("please enter all the * required fields");
     }
   };
 
@@ -138,16 +139,7 @@ const PropertyDetailsForm = () => {
           ></textarea>
         </div>
       </div>
-      <div className="flex h-16 items-center justify-between rounded-b-lg bg-darkBlue px-8 py-3">
-        <p className="text-[#7A7A7A]">
-          Need Help? <b>call 9999999999</b>
-        </p>
-        <input
-          type="submit"
-          value="Next"
-          className="cursor-pointer rounded-lg bg-darkBlue px-9 py-1 text-[20px] font-light text-white"
-        />
-      </div>
+      <FormSubmitBtn />
     </form>
   );
 };

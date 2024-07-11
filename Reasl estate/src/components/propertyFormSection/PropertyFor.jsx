@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleChangeData } from "../../features/PropertyDetails/PropertyDetailSlice";
 
 const PropertyFor = () => {
-  const formData = useSelector((state) => state.productDetails.formData);
+  const formData = useSelector((state) => state.propertyDetails.formData);
   const dispatch = useDispatch();
   return (
     <>

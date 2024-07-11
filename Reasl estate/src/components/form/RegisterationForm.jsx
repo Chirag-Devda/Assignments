@@ -3,9 +3,12 @@ import { FaChevronDown } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 import { RegisterFormLayout } from "../../components";
+import { useDispatch } from "react-redux";
+import { addFormData } from "../../features/RegisterDetails/RegisterDetailSlice";
 
 const RegisterationForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -14,7 +17,7 @@ const RegisterationForm = () => {
 
   const onSubmit = (data) => {
     navigate("/verification");
-    console.log(data);
+    dispatch(addFormData(data));
   };
 
   return (

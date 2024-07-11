@@ -20,7 +20,7 @@ const initialState = {
 };
 
 export const PropertyDetailSlice = createSlice({
-  name: "counter",
+  name: "propertyDetail",
   initialState,
   reducers: {
     pushPropertyDetail: (state, action) => {

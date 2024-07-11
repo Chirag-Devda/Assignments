@@ -18,6 +18,9 @@ import MultiChoice from "./propertyFormSection/MultiChoice";
 import RegisterFormLayout from "./layout/RegisterFormLayout";
 import HomeLayout from "./layout/HomeLayout";
 
+// utils
+import FormSubmitBtn from "./utils/FormSubmitBtn";
+
 export {
   Navbar,
   RegisterationForm,
@@ -31,4 +34,5 @@ export {
   RegisterFormLayout,
   HomeLayout,
   VerificationForm,
+  FormSubmitBtn,
 };
