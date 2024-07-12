@@ -1,6 +1,9 @@
 // navbar
 import Navbar from "./navbar/Navbar";
 
+// footer
+import Footer from "./footer/Footer.jsx";
+
 // form
 import RegisterationForm from "./form/RegisterationForm";
 import PropertyDetailsForm from "./form/PropertyDetailsForm";
@@ -43,4 +46,5 @@ export {
   ListPropertyLayout,
   PropertyFeatures,
   Radio,
+  Footer,
 };

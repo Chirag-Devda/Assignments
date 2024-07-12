@@ -1,5 +1,7 @@
+import PreviewLayout from "../../components/layout/PreviewLayout";
+
 const Preview = () => {
-  return <div>Preview</div>;
+  return <PreviewLayout>Preview</PreviewLayout>;
 };
 
 export default Preview;
