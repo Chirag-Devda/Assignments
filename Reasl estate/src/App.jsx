@@ -8,6 +8,8 @@ import {
   ListLocation,
   ListPrice,
   ListProperty,
+  PostConfirmation,
+  Preview,
   Verification,
 } from "./pages";
 import ListPropertyLayout from "./components/layout/ListPropertyLayout";
@@ -41,6 +43,14 @@ function App() {
     {
       path: "/listimages",
       element: <ListImages />,
+    },
+    {
+      path: "/post-confirmation",
+      element: <PostConfirmation />,
+    },
+    {
+      path: "/preview",
+      element: <Preview />,
     },
   ]);
 

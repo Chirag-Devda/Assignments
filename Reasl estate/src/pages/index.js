@@ -5,6 +5,8 @@ import ListLocation from "./listLocation/ListLocation";
 import ListFeatures from "./listFeatures/ListFeatures";
 import ListPrice from "./listPrice/ListPrice";
 import ListImages from "./listImages/ListImages";
+import PostConfirmation from "./postConfirmation/PostConfirmation";
+import Preview from "./preview/Preview";
 
 export {
   Home,
@@ -14,4 +16,6 @@ export {
   ListFeatures,
   ListPrice,
   ListImages,
+  PostConfirmation,
+  Preview,
 };
