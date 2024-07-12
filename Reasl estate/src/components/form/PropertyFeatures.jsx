@@ -43,7 +43,7 @@ const PropertyFeatures = () => {
         <SocietyAmenities />
         <hr className="text-gray" />
       </div>
-      <FormSubmitBtn />
+      <FormSubmitBtn value="Next" />
     </form>
   );
 };

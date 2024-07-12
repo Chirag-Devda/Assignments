@@ -23,7 +23,7 @@ const ListLocation = () => {
               <TextInputs label="City" name="streetname" />
             </div>
           </div>
-          <FormSubmitBtn />
+          <FormSubmitBtn value="Next" />
         </form>
       </ListPropertyLayout>
     </>

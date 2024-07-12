@@ -142,7 +142,7 @@ const PropertyDetailsForm = () => {
           ></textarea>
         </div>
       </div>
-      <FormSubmitBtn />
+      <FormSubmitBtn value="Next" />
     </form>
   );
 };

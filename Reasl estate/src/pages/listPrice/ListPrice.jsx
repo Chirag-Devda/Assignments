@@ -1,12 +1,44 @@
 import { useDispatch } from "react-redux";
 import { FormSubmitBtn, ListPropertyLayout } from "../../components";
 import { handlePriceData } from "../../features/PriceDetails/PriceDetails";
+import { useNavigate } from "react-router-dom";
+
+export const InputField = ({ name, label }) => {
+  const dispatch = useDispatch();
+  return (
+    <div className="relative flex w-1/2 flex-col gap-2">
+      <label>
+        {label} <span className="ml-1 text-red-600">*</span>
+      </label>
+      <input
+        type="number"
+        name={name}
+        onChange={(e) => {
+          dispatch(
+            handlePriceData({
+              name: e.target.name,
+              value: e.target.value,
+            }),
+          );
+        }}
+        required
+        className="rounded-lg border-2 border-gray py-3 pl-10 pr-20 text-xl"
+      />
+      <span className="absolute left-4 top-12 text-xl text-blue-gray-300">
+        &#x20b9;
+      </span>
+      <span className="absolute right-4 top-12 text-blue-gray-300">/Month</span>
+    </div>
+  );
+};
 
 const ListPrice = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    navigate("/listimages");
   };
 
   return (
@@ -14,56 +46,8 @@ const ListPrice = () => {
       <form onSubmit={handleSubmit} className="h-full w-full bg-white">
         <div className="flex h-[368px] w-[976px] flex-col gap-14 overflow-scroll p-10 text-black shadow-xl">
           <div className="flex gap-[60px]">
-            <div className="relative flex w-1/2 flex-col gap-2">
-              <label>
-                Rent <span className="ml-1 text-red-600">*</span>
-              </label>
-              <input
-                type="number"
-                name="rent"
-                onChange={(e) => {
-                  dispatch(
-                    handlePriceData({
-                      name: e.target.name,
-                      value: e.target.value,
-                    }),
-                  );
-                }}
-                required
-                className="rounded-lg border-2 border-gray py-3 pl-10 pr-20 text-xl"
-              />
-              <span className="absolute left-4 top-12 text-xl text-blue-gray-300">
-                &#x20b9;
-              </span>
-              <span className="absolute right-4 top-12 text-blue-gray-300">
-                /Month
-              </span>
-            </div>
-            <div className="relative flex w-1/2 flex-col gap-2">
-              <label>
-                Security <span className="ml-1 text-red-600">*</span>
-              </label>
-              <input
-                type="number"
-                name="security"
-                onChange={(e) => {
-                  dispatch(
-                    handlePriceData({
-                      name: e.target.name,
-                      value: e.target.value,
-                    }),
-                  );
-                }}
-                required
-                className="rounded-lg border-2 border-gray py-3 pl-10 pr-20 text-xl"
-              />
-              <span className="absolute left-4 top-12 text-xl text-blue-gray-300">
-                &#x20b9;
-              </span>
-              <span className="absolute right-4 top-12 text-blue-gray-300">
-                /Month
-              </span>
-            </div>
+            <InputField name="rent" label="Rent" />
+            <InputField name="security" label="Security" />
           </div>
           <div className="flex gap-[60px]">
             <div className="relative flex w-1/2 flex-col gap-2">
@@ -104,7 +88,7 @@ const ListPrice = () => {
                   <input
                     type="number"
                     name="maintainancePrice"
-                    placeholder="maintainancePrice"
+                    placeholder="maintainance"
                     onChange={(e) => {
                       dispatch(
                         handlePriceData({
@@ -120,11 +104,8 @@ const ListPrice = () => {
                     &#x20b9;
                   </span>
                 </div>
-                <div>
-                  <input
-                    type="number"
-                    name="maintainanceDuration"
-                    placeholder="Duration"
+                <div className="w-1/2">
+                  <select
                     onChange={(e) => {
                       dispatch(
                         handlePriceData({
@@ -133,9 +114,21 @@ const ListPrice = () => {
                         }),
                       );
                     }}
+                    className="w-full rounded-lg border-2 border-gray py-3"
                     required
-                    className="rounded-lg border-2 border-gray px-3 py-3"
-                  />
+                    defaultValue=""
+                    name="maintainanceDuration"
+                  >
+                    <option value="" disabled hidden>
+                      Duration
+                    </option>
+                    <option className="text-xl" value="Month">
+                      Month
+                    </option>
+                    <option className="text-xl" value="Year">
+                      Year
+                    </option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -146,16 +139,21 @@ const ListPrice = () => {
             </h1>
             <textarea
               name="additionalPricing"
-              rows={15}
+              rows={5}
               placeholder="Do you have any concerns regarding pricing of your property? Add your concerns here or call us. "
               className="w-full border-2 border-gray p-3"
               onChange={(e) => {
-                handlePriceData({ name: e.target.name, value: e.target.value });
+                dispatch(
+                  handlePriceData({
+                    name: e.target.name,
+                    value: e.target.value,
+                  }),
+                );
               }}
             ></textarea>
           </div>
         </div>
-        <FormSubmitBtn />
+        <FormSubmitBtn value="Next" />
       </form>
     </ListPropertyLayout>
   );
