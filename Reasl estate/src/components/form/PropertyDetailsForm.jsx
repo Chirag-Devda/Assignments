@@ -34,6 +34,9 @@ const PropertyDetailsForm = () => {
 
     if (isFormValid) {
       navigate("/listlocation");
+
+      // save to localStorage
+      localStorage.setItem("propertyDetails", JSON.stringify(formData));
       console.log("form submitted with all details", formData);
     } else {
       alert("please enter all the * required fields");

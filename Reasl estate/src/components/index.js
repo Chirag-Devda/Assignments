@@ -25,9 +25,12 @@ import Radio from "./featuresFormSection/Radio.jsx";
 import RegisterFormLayout from "./layout/RegisterFormLayout";
 import HomeLayout from "./layout/HomeLayout";
 import ListPropertyLayout from "./layout/ListPropertyLayout";
+import PreviewLayout from "./layout/PreviewLayout.jsx";
 
 // utils
 import FormSubmitBtn from "./utils/FormSubmitBtn";
+import ReviewsCard from "./utils/ReviewsCard.jsx";
+import PropertyCard from "./utils/PropertyCard.jsx";
 
 export {
   Navbar,
@@ -46,5 +49,8 @@ export {
   ListPropertyLayout,
   PropertyFeatures,
   Radio,
+  PreviewLayout,
   Footer,
+  ReviewsCard,
+  PropertyCard,
 };

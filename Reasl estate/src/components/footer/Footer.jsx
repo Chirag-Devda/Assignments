@@ -3,7 +3,7 @@ import { PiCurrencyInrBold } from "react-icons/pi";
 
 const Footer = () => {
   return (
-    <footer className="absolute bottom-0 h-[442px] w-full bg-[#122B49]">
+    <footer className="h-[442px] w-full bg-[#122B49]">
       <div className="container relative mx-auto h-full px-5">
         <div className="flex h-[70%] items-end gap-20">
           <div className="mt-10 self-start">

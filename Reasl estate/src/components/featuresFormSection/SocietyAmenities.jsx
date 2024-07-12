@@ -1,11 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Checkbox } from "@material-tailwind/react";
 import {
   addFeatures,
   removeFeatures,
 } from "../../features/FeaturesDetails/FeaturesDetailSlice";
+import { useEffect } from "react";
 
-export const Inputs = ({ value, IconPath }) => {
+export const Inputs = ({ IconPath }) => {
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -25,6 +26,7 @@ export const Inputs = ({ value, IconPath }) => {
       );
     }
   };
+
   return (
     <div className="flex w-[138px] flex-col-reverse items-center">
       <Checkbox
@@ -32,7 +34,7 @@ export const Inputs = ({ value, IconPath }) => {
         onChange={handleChange}
         type="checkbox"
         name="societyAmenities"
-        value={value}
+        value={IconPath}
         className="cursor-pointer text-center checked:bg-darkBlue"
       />
       <div className="flex flex-col items-center justify-center">

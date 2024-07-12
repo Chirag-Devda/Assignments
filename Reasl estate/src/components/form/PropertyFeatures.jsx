@@ -25,7 +25,11 @@ const PropertyFeatures = () => {
     const isValid = validateFeatures(features);
 
     if (isValid) {
-      navigate("/listprice");
+      navigate("/listprice"); // navigate to next page on submit
+
+      // save to local storage
+      localStorage.setItem("propertyfeatures", JSON.stringify(features));
+
       console.log("form submitted with all details", features);
     } else {
       alert("Please fill in all required fields");

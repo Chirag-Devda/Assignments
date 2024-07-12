@@ -1,46 +1,9 @@
-import { useEffect, useRef, useState } from "react";
-import { ListPropertyLayout } from "../../components";
-import { IoMdAdd } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { ListPropertyLayout } from "../../components";
+import Upload from "./components/Upload";
 
 const ListImages = () => {
-  const inputRef = useRef();
-  const [image, setImage] = useState();
   const navigate = useNavigate();
-
-  const handleImageClick = () => {
-    inputRef.current.click();
-  };
-
-  const handleImageChange = (e) => {
-    const files = e.target.files[0];
-    console.log(files);
-    setImage(e.target.files[0]);
-
-    if (files) {
-      const reader = new FileReader();
-      reader.readAsDataURL(files);
-      reader.onloadend = () => {
-        const base64String = reader.result;
-        localStorage.setItem("propertyImage", base64String);
-      };
-    }
-  };
-  useEffect(() => {
-    const base64String = localStorage.getItem("propertyImage");
-
-    if (base64String) {
-      fetch(base64String)
-        .then((res) => res.blob())
-        .then((blob) => {
-          const file = new File([blob], "propertyImage.jpg", {
-            type: blob.type,
-          });
-          setImage(file);
-        });
-    }
-  }, []);
-
   return (
     <ListPropertyLayout>
       <div className="flex h-[368px] w-[976px] flex-col gap-6 overflow-scroll p-10 text-black shadow-xl">
@@ -54,32 +17,8 @@ const ListImages = () => {
         </h1>
 
         {/* Upload container */}
+        <Upload />
 
-        <div
-          onClick={handleImageClick}
-          className={`flex cursor-pointer flex-col items-center justify-center gap-[10px] border border-gray ${image ? "p-5" : "p-20"}`}
-        >
-          {image ? (
-            <img src={URL.createObjectURL(image)} className="h-[70vh] w-full" />
-          ) : (
-            <img src="../src/assets/icons/camera.png" />
-          )}
-          <input
-            onChange={handleImageChange}
-            type="file"
-            ref={inputRef}
-            className="hidden"
-          />
-          {!image && (
-            <button
-              className="flex cursor-pointer items-center gap-2 rounded-[8px] bg-darkBlue p-2 font-inter text-base font-medium text-white"
-              htmlFor="file-upload"
-            >
-              <IoMdAdd size={20} />
-              Add Photos Now
-            </button>
-          )}
-        </div>
         {/* Details */}
         <p className="text-lg">OR</p>
         <p className="text-xl">

@@ -27,7 +27,7 @@ const VerificationForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="h-full w-1/2">
       <RegisterFormLayout>
-        <div className="flex flex-col gap-5">
+        <div className="relative flex flex-col gap-5">
           <div className="flex justify-between">
             <label className="text-xl" htmlFor="otp">
               Enter OTP sent on 999-999-9999{" "}
@@ -55,7 +55,7 @@ const VerificationForm = () => {
             })}
           />
           {errors.otp && (
-            <p className="absolute left-14 top-0.5 text-sm text-red-500">
+            <p className="absolute right-32 top-0.5 text-sm text-red-500">
               {errors.otp.message}
             </p>
           )}
