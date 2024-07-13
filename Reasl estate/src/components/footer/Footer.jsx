@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex h-[70%] items-end gap-20">
           <div className="mt-10 self-start">
             <img
-              src="../src/assets/images/logo.png"
+              src="/images/logo.png"
               alt="Dylan Estate"
               className="h-[100px] w-[225px]"
             />

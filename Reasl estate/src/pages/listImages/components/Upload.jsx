@@ -47,7 +47,7 @@ const Upload = () => {
           className="h-[70vh] w-full object-contain"
         />
       ) : (
-        <img src="../src/assets/icons/camera.png" />
+        <img src="/icons/camera.png" />
       )}
       <input
         onChange={handleImageChange}

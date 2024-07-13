@@ -47,53 +47,26 @@ export const Inputs = ({ IconPath }) => {
 const SocietyAmenities = () => {
   return (
     <div className="flex flex-wrap gap-10">
-      <Inputs
-        value="24/7 security"
-        IconPath="../src/assets/icons/security.png"
-      />
-      <Inputs value="CCTV Camera" IconPath="../src/assets/icons/cctv.png" />
-      <Inputs value="Lift" IconPath="../src/assets/icons/lift.png" />
-      <Inputs
-        value="Reserved Parking"
-        IconPath="../src/assets/icons/parking.png"
-      />
-      <Inputs
-        value="Regular water supply"
-        IconPath="../src/assets/icons/watersupply.png"
-      />
-      <Inputs
-        value="Power Back up-Partial"
-        IconPath="../src/assets/icons/power.png"
-      />
-      <Inputs
-        value="Power Back up-Full"
-        IconPath="../src/assets/icons/power.png"
-      />
-      <Inputs
-        value="Maintenance staff"
-        IconPath="../src/assets/icons/maintainance.png"
-      />
-      <Inputs value="Garden/ Park" IconPath="../src/assets/icons/garden.png" />
-      <Inputs value="Kids Play area" IconPath="../src/assets/icons/kids.png" />
-      <Inputs value="Sport" IconPath="../src/assets/icons/sports.png" />
-      <Inputs value="Property Gym" IconPath="../src/assets/icons/gym.png" />
-      <Inputs value="Community Hall" IconPath="../src/assets/icons/club.png" />
-      <Inputs
-        value="Shopping center"
-        IconPath="../src/assets/icons/shopingcenter.png"
-      />
-      <Inputs value="Club House" IconPath="../src/assets/icons/club.png" />
-      <Inputs
-        value="Swimming pool"
-        IconPath="../src/assets/icons/swimming.png"
-      />
-      <Inputs value="Intercom" IconPath="../src/assets/icons/intercom.png" />
-      <Inputs value="Fire Safety" IconPath="../src/assets/icons/fire.png" />
-      <Inputs value="Club House" IconPath="../src/assets/icons/club.png" />
-      <Inputs
-        value="Swimming pool"
-        IconPath="../src/assets/icons/swimming.png"
-      />
+      <Inputs value="24/7 security" IconPath="/icons/security.png" />
+      <Inputs value="CCTV Camera" IconPath="/icons/cctv.png" />
+      <Inputs value="Lift" IconPath="/icons/lift.png" />
+      <Inputs value="Reserved Parking" IconPath="/icons/parking.png" />
+      <Inputs value="Regular water supply" IconPath="/icons/watersupply.png" />
+      <Inputs value="Power Back up-Partial" IconPath="/icons/power.png" />
+      <Inputs value="Power Back up-Full" IconPath="/icons/power.png" />
+      <Inputs value="Maintenance staff" IconPath="/icons/maintainance.png" />
+      <Inputs value="Garden/ Park" IconPath="/icons/garden.png" />
+      <Inputs value="Kids Play area" IconPath="/icons/kids.png" />
+      <Inputs value="Sport" IconPath="/icons/sports.png" />
+      <Inputs value="Property Gym" IconPath="/icons/gym.png" />
+      <Inputs value="Community Hall" IconPath="/icons/club.png" />
+      <Inputs value="Shopping center" IconPath="/icons/shopingcenter.png" />
+      <Inputs value="Club House" IconPath="/icons/club.png" />
+      <Inputs value="Swimming pool" IconPath="/icons/swimming.png" />
+      <Inputs value="Intercom" IconPath="/icons/intercom.png" />
+      <Inputs value="Fire Safety" IconPath="/icons/fire.png" />
+      <Inputs value="Club House" IconPath="/icons/club.png" />
+      <Inputs value="Swimming pool" IconPath="/icons/swimming.png" />
     </div>
   );
 };

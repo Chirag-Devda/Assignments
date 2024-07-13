@@ -8,11 +8,7 @@ const Navbar = () => {
     <nav className="bg-darkCream">
       <div className="container mx-auto flex h-[72px] items-center justify-between px-5">
         <div>
-          <img
-            className="h-12 w-[105px]"
-            src="./src/assets/images/logo.png"
-            alt="Logo"
-          />
+          <img className="h-12 w-[105px]" src="/images/logo.png" alt="Logo" />
         </div>
         <div className="flex">
           <ul className="flex gap-8 text-[14px] font-bold">

@@ -32,7 +32,7 @@ const PropertyCard = () => {
         </Typography>
         <Typography className="mb-4 flex items-center gap-2">
           <span>
-            <img src="../src/assets/icons/squarefoot.png" alt="" />
+            <img src="/icons/squarefoot.png" alt="" />
           </span>
           1850 Sq. ft.
         </Typography>

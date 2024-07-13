@@ -24,7 +24,7 @@ const HomeLayout = ({ children }) => {
               <div className="flex flex-col gap-2">
                 {ulpoadSteps.map((step, i) => (
                   <div key={i} className="flex items-center">
-                    <img src="./src/assets/images/check.png" alt="Check" />
+                    <img src="/images/check.png" alt="Check" />
                     <p>
                       {step.para}
                       <b> {step.bold} </b>
