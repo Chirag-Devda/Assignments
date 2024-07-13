@@ -1,7 +1,8 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { FormSubmitBtn, ListPropertyLayout } from "../../components";
 import { handlePriceData } from "../../features/PriceDetails/PriceDetails";
-import { useNavigate } from "react-router-dom";
 
 export const InputField = ({ name, label }) => {
   const dispatch = useDispatch();
@@ -33,12 +34,17 @@ export const InputField = ({ name, label }) => {
 };
 
 const ListPrice = () => {
+  const priceDetails = useSelector((state) => state.priceDetails.price);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/listimages");
+
+    navigate("/listimages"); // navigate to next page on submit
+
+    // store data on submit
+    localStorage.setItem("propertyPrice", JSON.stringify(priceDetails));
   };
 
   return (

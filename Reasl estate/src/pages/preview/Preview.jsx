@@ -3,13 +3,15 @@ import { FaRegHeart } from "react-icons/fa6";
 import { PiUploadSimpleFill } from "react-icons/pi";
 
 import { PreviewLayout } from "../../components/index.js";
-import PreviewImage from "./components/PreviewImage.jsx";
-import PreviewAmenities from "./components/PreviewAmenities.jsx";
-import PreviewDescription from "./components/PreviewDescription.jsx";
-import PreviewRatings from "./components/PreviewRatings.jsx";
-import SimilarProperty from "./components/SimilarProperty.jsx";
-import About from "./components/About.jsx";
-import InquiryForm from "./components/InquiryForm.jsx";
+import {
+  About,
+  InquiryForm,
+  PreviewAmenities,
+  PreviewDescription,
+  PreviewImage,
+  PreviewRatings,
+  SimilarProperty,
+} from "./components";
 
 const Preview = () => {
   return (

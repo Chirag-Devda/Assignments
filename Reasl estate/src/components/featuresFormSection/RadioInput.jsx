@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleFeaturesData } from "../../features/FeaturesDetails/FeaturesDetailSlice";
 
-const RadioSection = ({ name, value }) => {
+const RadioInput = ({ name, value }) => {
   const features = useSelector((state) => state.featuresDetails.features);
 
   const dispatch = useDispatch();
@@ -30,4 +30,4 @@ const RadioSection = ({ name, value }) => {
   );
 };
 
-export default RadioSection;
+export default RadioInput;

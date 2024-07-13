@@ -19,7 +19,7 @@ import FloorAndFacing from "./propertyFormSection/FloorAndFacing";
 import MultiChoice from "./propertyFormSection/MultiChoice";
 
 // featuresFormSection
-import Radio from "./featuresFormSection/Radio.jsx";
+import Radio from "./featuresFormSection/RadioInput.jsx";
 
 // layout
 import RegisterFormLayout from "./layout/RegisterFormLayout";

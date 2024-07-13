@@ -1,11 +1,3 @@
-import {
-  Tab,
-  TabPanel,
-  Tabs,
-  TabsBody,
-  TabsHeader,
-} from "@material-tailwind/react";
-
 import { PropertyDetailsForm } from "../../components";
 import ListPropertyLayout from "../../components/layout/ListPropertyLayout";
 

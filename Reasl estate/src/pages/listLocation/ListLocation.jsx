@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { FormSubmitBtn, ListPropertyLayout } from "../../components";
 import TextInputs from "./components/TextInputs";
+import { useSelector } from "react-redux";
 
 const ListLocation = () => {
   const navigate = useNavigate();
+  const location = useSelector((state) => state.locationDetails.locationData);
 
   const handleSubmit = (e) => {
-    navigate("/listfeatures");
+    navigate("/listfeatures"); // navigate to next page on submit
+
+    localStorage.setItem("propertyLocation", JSON.stringify(location)); // Store location data on submit
+
     e.preventDefault();
   };
   return (
@@ -19,8 +24,8 @@ const ListLocation = () => {
               <TextInputs label="Locality / Area" name="areaname" />
             </div>
             <div className="flex gap-[60px]">
-              <TextInputs label="Landmark / Street Name" name="cityname" />
-              <TextInputs label="City" name="streetname" />
+              <TextInputs label="Landmark / Street Name" name="streetname" />
+              <TextInputs label="City" name="cityname" />
             </div>
           </div>
           <FormSubmitBtn value="Next" />

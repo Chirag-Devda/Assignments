@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import {
   PropertyTypeFor,
@@ -17,8 +18,8 @@ import {
   PropertyType,
   PropertyTypeSelection,
 } from "../../components";
+
 import { handleChangeData } from "../../features/PropertyDetails/PropertyDetailSlice";
-import { useNavigate } from "react-router-dom";
 
 const PropertyDetailsForm = () => {
   const formData = useSelector((state) => state.propertyDetails.formData);
@@ -54,7 +55,7 @@ const PropertyDetailsForm = () => {
         <div className="relative">
           <p className="pb-2">
             <span className="pr-1 text-red-600">*</span>Property Type :
-          </p>{" "}
+          </p>
           <div className="flex gap-6">
             <PropertyType name="Residential" />
             <PropertyType name="Commercial" />
@@ -71,7 +72,6 @@ const PropertyDetailsForm = () => {
         </div>
         {/* Property Area */}
         <div>
-          {" "}
           <div className="flex gap-[60px]">
             <PropertyArea
               id="builtArea"
@@ -124,6 +124,7 @@ const PropertyDetailsForm = () => {
           label="Availability"
           array={availability}
         />
+        {/* Property Description */}
         <div className="flex flex-col">
           <label htmlFor="description">
             Property description <span className="text-red-600">*</span>

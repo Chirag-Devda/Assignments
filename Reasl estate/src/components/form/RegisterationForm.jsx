@@ -16,7 +16,14 @@ const RegisterationForm = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    navigate("/verification");
+    navigate("/verification"); // navigate to next page on submit
+
+    // store data on submit
+    localStorage.setItem("UserDetails", JSON.stringify(data));
+
+    // Reset the Property Image on submit
+    localStorage.removeItem("propertyImage");
+
     dispatch(addFormData(data));
   };
 

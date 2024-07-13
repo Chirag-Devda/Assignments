@@ -1,9 +1,12 @@
-import FormSubmitBtn from "../utils/FormSubmitBtn";
-import GeneralFeatures from "../featuresFormSection/GeneralFeatures";
-import OtherFeatures from "../featuresFormSection/OtherFeatures";
-import SocietyAmenities from "../featuresFormSection/SocietyAmenities";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import {
+  GeneralFeatures,
+  OtherFeatures,
+  SocietyAmenities,
+} from "../featuresFormSection";
+
+import FormSubmitBtn from "../utils/FormSubmitBtn";
 
 const PropertyFeatures = () => {
   const features = useSelector((state) => state.featuresDetails.features);
