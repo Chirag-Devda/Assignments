@@ -15,3 +15,7 @@ DylanEstate is a comprehensive online platform designed for builders and propert
 **React Hook Form**: A library for handling form inputs, validation, and submission, simplifying form management.
 
 **Redux**: A state management library for managing complex application state, ensuring data consistency and predictability.
+
+## key learnings
+
+Implemented image upload functionality. Users can select and upload images within the application. Converted uploaded images to base64 URL format. This efficient encoding improves data handling and web integration. Ensured compatibility with various image formats. Supported common image types like JPEG, PNG, and GIF. Adhered to best practices for image handling and base64 conversion.
