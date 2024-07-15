@@ -19,9 +19,12 @@ export const priceDetailSlice = createSlice({
       const { name, value } = action.payload;
       state.price = { ...state.price, [name]: value };
     },
+    setPrice: (state, action) => {
+      state.price = action.payload;
+    },
   },
 });
 
-export const { handlePriceData } = priceDetailSlice.actions;
+export const { handlePriceData, setPrice } = priceDetailSlice.actions;
 
 export default priceDetailSlice.reducer;
