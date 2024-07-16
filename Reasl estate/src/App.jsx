@@ -13,6 +13,7 @@ import {
   Verification,
 } from "./pages";
 import ListPropertyLayout from "./components/layout/ListPropertyLayout";
+import LocationMap from "./pages/listLocation/components/LocationMap";
 
 function App() {
   const router = createBrowserRouter([
@@ -51,6 +52,10 @@ function App() {
     {
       path: "/preview",
       element: <Preview />,
+    },
+    {
+      path: "/map",
+      element: <LocationMap />,
     },
   ]);
 
