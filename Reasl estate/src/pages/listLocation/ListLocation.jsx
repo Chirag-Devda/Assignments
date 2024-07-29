@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { FormSubmitBtn, ListPropertyLayout } from "../../components";
 import TextInputs from "./components/TextInputs";
 import { useSelector } from "react-redux";
+import LocationMap from "./components/LocationMap";
 
 const ListLocation = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const ListLocation = () => {
     <>
       <ListPropertyLayout>
         <form onSubmit={handleSubmit} className="h-full w-full bg-white">
-          <div className="flex h-[368px] w-[976px] flex-col gap-14 overflow-scroll p-10 text-black shadow-xl">
+          <div className="flex h-[368px] w-[976px] flex-col gap-14 overflow-scroll p-10 pb-0 text-black shadow-xl">
             <div className="flex gap-[60px]">
               <TextInputs label="Building/ Society Name" name="societyname" />
               <TextInputs label="Locality / Area" name="areaname" />
@@ -27,7 +28,9 @@ const ListLocation = () => {
               <TextInputs label="Landmark / Street Name" name="streetname" />
               <TextInputs label="City" name="cityname" />
             </div>
+            <LocationMap />
           </div>
+
           <FormSubmitBtn value="Next" />
         </form>
       </ListPropertyLayout>

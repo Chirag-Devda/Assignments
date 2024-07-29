@@ -7,6 +7,7 @@ import ReactMapGl, {
 import { useDispatch, useSelector } from "react-redux";
 import "mapbox-gl/dist/mapbox-gl.css"; // for having hand cursor on map
 import { updateLocation } from "../../../features/LocationDetails/LocationDetailSlice";
+import Geocoder from "./Geocoder";
 
 const LocationMap = () => {
   const dispatch = useDispatch();
@@ -35,8 +36,8 @@ const LocationMap = () => {
 
   return (
     <div>
-      <div className="container mx-auto h-screen w-screen">
-        <div className="absolute left-0 top-0 h-full w-full">
+      <div className="relative h-[350px] w-full">
+        <div className="absolute h-full w-full">
           {/* Google Map */}
           <ReactMapGl
             ref={mapRef}
@@ -71,6 +72,7 @@ const LocationMap = () => {
                 );
               }}
             ></GeolocateControl>
+            <Geocoder />
           </ReactMapGl>
         </div>
       </div>
